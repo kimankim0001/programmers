@@ -1,10 +1,10 @@
-import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String a = sc.next();
-        System.out.println(a);
+        Solution solution = new Solution();
+
+        System.out.println(solution.solution("aBcDeFg"));
+        System.out.println(solution.solution("AAA"));
+
     }
 }
