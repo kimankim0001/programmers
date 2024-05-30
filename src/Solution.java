@@ -1,12 +1,19 @@
+import java.util.Scanner;
 class Solution {
-    public int[][] solution(int[][] arr1, int[][] arr2) {
-        // 이거 이중 for 문 활용해보았던 것
-        int[][] answer = new int[arr1.length][arr1[0].length];
-        for (int i = 0; i < arr1.length; i++){
-            for (int j = 0; j < arr1[0].length; j++){
-                answer[i][j] = arr1[i][j] + arr2[i][j];
+    public static void main(String[] args) {
+        // 가로 a, 세로 b
+        // 이중 for 문 으로 i 가 세로, j 가 가로
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        for(int i = 0; i < b; i++){
+            for (int j = 0; j < a; j++){
+                System.out.print("*");
             }
+            System.out.println();
         }
-        return answer;
     }
 }
+// 문제 링크
+// https://school.programmers.co.kr/learn/courses/30/lessons/12969
