@@ -1,19 +1,28 @@
-import java.util.Scanner;
 class Solution {
-    public static void main(String[] args) {
-        // 가로 a, 세로 b
-        // 이중 for 문 으로 i 가 세로, j 가 가로
-        Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-
-        for(int i = 0; i < b; i++){
-            for (int j = 0; j < a; j++){
-                System.out.print("*");
-            }
-            System.out.println();
+    public int[] solution(int n, int m) {
+        // 일단 최대공약수 구하는 방법과 최소공배수를 구하는 방법을 찾자
+        // 최대공약수 유클리드 호제법 :
+        // 큰수에서 작은수를 나눈 나머지 -> 작은수를 나머지로 나눈 나머지가 0이 될때까지 반복 -> 나머지가 0이 되면 작은수가 최대공약수
+        // 최소공배수 : 두 수의 곱 / 최대공약수
+        // answer[0] 과 answer[1] 에 각각 넣어주면 되겠다
+        int[] answer = new int[2];
+        int a = n;
+        int b = m;
+        if(n < m) {
+            int temp = n;
+            n = m;
+            m = temp;
         }
+        int r = 0;
+        while(m > 0){
+            r = n % m;
+            n = m;
+            m = r;
+        }
+        answer[0] = n;
+
+
+        answer[1] = a * b / n;
+        return answer;
     }
 }
-// 문제 링크
-// https://school.programmers.co.kr/learn/courses/30/lessons/12969
