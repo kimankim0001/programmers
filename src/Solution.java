@@ -1,11 +1,21 @@
 class Solution {
-    public int solution(int n){
-        String s = "";
-        while(n != 0){
-            s += n%3;
-            n/=3;
+    public String solution(String s){
+        String answer = "";
+        String[] str = s.split("");
+
+        int idx = 0;
+        for (int i = 0; i<str.length; i++){
+            if(str[i].equals(" ")){
+                idx = 0;
+            } else if (idx % 2 == 0){
+                str[i] = str[i].toUpperCase();
+                idx++;
+            } else if (idx % 2 == 1){
+                str[i] = str[i].toLowerCase();
+                idx++;
+            }
+            answer += str[i];
         }
-        int answer = Integer.parseInt(s, 3);
         return answer;
     }
 }
