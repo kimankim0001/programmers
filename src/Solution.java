@@ -1,20 +1,15 @@
 class Solution {
-    public String solution(String s){
-        String answer = "";
-        String[] str = s.split("");
-
-        int idx = 0;
-        for (int i = 0; i<str.length; i++){
-            if(str[i].equals(" ")){
-                idx = 0;
-            } else if (idx % 2 == 0){
-                str[i] = str[i].toUpperCase();
-                idx++;
-            } else if (idx % 2 == 1){
-                str[i] = str[i].toLowerCase();
-                idx++;
+    public int solution(int[] number) {
+        // 인덱스 3개씩 뽑는거니까 3중 for 문으로 반복스해보자르
+        int answer = 0;
+        for (int i = 0; i<number.length; i++){
+            for (int j = i+1; j<number.length; j++){
+                for (int k = j+1; k<number.length; k++){
+                    if(number[i]+number[j]+number[k]==0){
+                        answer++;
+                    }
+                }
             }
-            answer += str[i];
         }
         return answer;
     }
