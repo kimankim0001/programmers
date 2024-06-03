@@ -1,16 +1,20 @@
 class Solution {
-    public int solution(int[] number) {
-        // 인덱스 3개씩 뽑는거니까 3중 for 문으로 반복스해보자르
+    public int solution(String t, String p) {
+        // p의 길이만큼 t에서 substring 하고
+        // p의 값과 비교해보기
+        // int 타입으로 변환해야하고
+        // for 문 반복범위를 t.length()-p.length()+1
         int answer = 0;
-        for (int i = 0; i<number.length; i++){
-            for (int j = i+1; j<number.length; j++){
-                for (int k = j+1; k<number.length; k++){
-                    if(number[i]+number[j]+number[k]==0){
-                        answer++;
-                    }
-                }
+
+        long pp = Long.parseLong(p);
+        int pl = p.length();
+        for (int i = 0; i<t.length()-pl+1; i++){
+            long tt = Long.parseLong(t.substring(i,i+pl));
+            if (tt<=pp){
+                answer++;
             }
         }
+
         return answer;
     }
 }
