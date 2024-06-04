@@ -1,20 +1,25 @@
 class Solution {
-    public int solution(String t, String p) {
-        // p의 길이만큼 t에서 substring 하고
-        // p의 값과 비교해보기
-        // int 타입으로 변환해야하고
-        // for 문 반복범위를 t.length()-p.length()+1
-        int answer = 0;
-
-        long pp = Long.parseLong(p);
-        int pl = p.length();
-        for (int i = 0; i<t.length()-pl+1; i++){
-            long tt = Long.parseLong(t.substring(i,i+pl));
-            if (tt<=pp){
-                answer++;
+    public int solution(int[][] sizes) {
+        // 다차원배열
+        // 먼저, 가로 와 세로를 비교해서 더 큰 수를 가로에 몰아주기(회전)
+        // 가로의 Max 값과 세로의 Max 값 구하기
+        // 리턴
+        int max_r = 0;
+        int max_c = 0;
+        for(int i = 0; i < sizes.length; i++){
+            if(sizes[i][0]<sizes[i][1]){
+                int tmp = sizes[i][0];
+                sizes[i][0] = sizes[i][1];
+                sizes[i][1] = tmp;
+            }
+            if(max_r<sizes[i][0]){
+                max_r = sizes[i][0];
+            }
+            if(max_c<sizes[i][1]){
+                max_c = sizes[i][1];
             }
         }
-
+        int answer = max_r*max_c;
         return answer;
     }
 }
