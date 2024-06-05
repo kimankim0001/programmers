@@ -1,25 +1,22 @@
 class Solution {
-    public int solution(int[][] sizes) {
-        // 다차원배열
-        // 먼저, 가로 와 세로를 비교해서 더 큰 수를 가로에 몰아주기(회전)
-        // 가로의 Max 값과 세로의 Max 값 구하기
-        // 리턴
-        int max_r = 0;
-        int max_c = 0;
-        for(int i = 0; i < sizes.length; i++){
-            if(sizes[i][0]<sizes[i][1]){
-                int tmp = sizes[i][0];
-                sizes[i][0] = sizes[i][1];
-                sizes[i][1] = tmp;
-            }
-            if(max_r<sizes[i][0]){
-                max_r = sizes[i][0];
-            }
-            if(max_c<sizes[i][1]){
-                max_c = sizes[i][1];
+    public String solution(String s, int n) {
+        // char 타입은 아스키 코드 값으로 계산되니까 연산처리가 가능
+        // for 문으로 공백일시 공백 리턴하고
+        // 소문자일 경우랑 대문자일 경우 만들어주고
+        // 그 안에 연산식으로 n 만큼 민 값을 반환하도록 코딩
+        // Character.isLowerCase(ch) 소문자일때 true
+        // Character.isUpperCase(ch) 대문자일때 true
+        String answer = "";
+        for (int i = 0; i<s.length(); i++){
+            char ch = s.charAt(i);
+            if (ch == ' '){
+                answer += ch;
+            } else if (Character.isLowerCase(ch)) {
+                answer += (char) ((ch - 'a' + n)%26 + 'a');
+            } else if (Character.isUpperCase(ch)) {
+                answer += (char) ((ch - 'A' + n)%26 + 'A');
             }
         }
-        int answer = max_r*max_c;
         return answer;
     }
 }
