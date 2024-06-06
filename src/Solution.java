@@ -1,22 +1,20 @@
 class Solution {
-    public String solution(String s, int n) {
-        // char 타입은 아스키 코드 값으로 계산되니까 연산처리가 가능
-        // for 문으로 공백일시 공백 리턴하고
-        // 소문자일 경우랑 대문자일 경우 만들어주고
-        // 그 안에 연산식으로 n 만큼 민 값을 반환하도록 코딩
-        // Character.isLowerCase(ch) 소문자일때 true
-        // Character.isUpperCase(ch) 대문자일때 true
-        String answer = "";
-        for (int i = 0; i<s.length(); i++){
-            char ch = s.charAt(i);
-            if (ch == ' '){
-                answer += ch;
-            } else if (Character.isLowerCase(ch)) {
-                answer += (char) ((ch - 'a' + n)%26 + 'a');
-            } else if (Character.isUpperCase(ch)) {
-                answer += (char) ((ch - 'A' + n)%26 + 'A');
-            }
+    public int solution(String s) {
+        // 배열에 영단어를 담고
+        // 문자열 안에서 배열 안의 영단어랑 일치하는 걸 찾아주는데
+        // 이걸 반복문으로 돌려주고
+        // 일치하는걸 배열의 인덱스 값으로 바꿔주는 함수를 찾아봐야겠네
+        // String a = "무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세 ";
+        // replace([기존문자],[바꿀문자])
+        // a= a.replace("대한", "민국");
+        // System.out.println(a);
+        //결과값 : 무궁화 삼천리 화려강산 민국사람 민국으로 길이 보전하세
+        // s.replace() 이걸 사용하면 되겠다
+        String[] arr = {"zero","one","two","three","four","five","six","seven","eight","nine"};
+        for (int i = 0; i < 10; i++){
+            s = s.replace(arr[i],String.valueOf(i));
         }
+        int answer = Integer.parseInt(s);
         return answer;
     }
 }
