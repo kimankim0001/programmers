@@ -1,15 +1,14 @@
 import java.util.*;
 
 class Solution {
-    public String[] solution(String[] strings, int n) {
-        // 일단 문자열을 먼저 정렬해주고
-        // 그 다음에 조건에 맞게 정렬하면 n 번째 인덱스가 같은걸 해결 가능
-        // 최근에 다시 학습한 람다식을 사용스
-        // 오류 확인, 유틸 임포트 안했음 습관화해야겠다
-        String[] answer = {};
-        Arrays.sort(strings);
-        Arrays.sort(strings, Comparator.comparing((str) -> str.substring(n, n+1)));
-        answer = strings;
+    public int[] solution(int[] array, int[][] commands) {
+        int[] answer = new int[commands.length];
+
+        for(int i = 0; i < commands.length; i++){
+            int[] temp = Arrays.copyOfRange(array, commands[i][0] - 1, commands[i][1]);
+            Arrays.sort(temp);
+            answer[i] = temp[commands[i][2] - 1];
+        }
         return answer;
     }
 }
