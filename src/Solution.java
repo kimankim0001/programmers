@@ -1,24 +1,24 @@
-import java.time.LocalDate;
-
 class Solution {
-    public String solution(int a, int b) {
-        // 달력, 날짜 나타낼 수 있는 함수 찾기
-        // 과제를 하면서 썼던 LocalDate 를 쓸 수 있지 않을까
-        // import java.time.LocalDate; 임포트
-        // of() 메소드는 전달된 인수를 가지고 특정 날짜를 표현하는 새로운 객체를 생성하여 반환
-        // LocalDate date = LocalDate.of(2016, a, b);
-        // 반환된 날짜를 요일로 나타내는 방법 찾기
-        // answer = date.getDayOfWeek();
-        // import java.time.DayOfWeek; 임포트
-        // String 타입으로 반환해줘야했다
-        // answer = String.valueOf(date.getDayOfWeek());
-        // 3글자로 반환
-        // answer = String.valueOf(date.getDayOfWeek()).substring(0,3);
+    public String solution(String[] cards1, String[] cards2, String[] goal) {
+        // 카드 뭉치 2개 cards1 cards2
+        // 원하는 순서의 단어 배열 조합 goal
+        // cards1 과 cards2 의 조합으로 goal 을 만들 수 있다면 Yes 리턴, 안되면 No 리턴
+        String answer = "Yes";
 
-        String answer = "";
-        LocalDate date = LocalDate.of(2016, a, b);
-        answer = String.valueOf(date.getDayOfWeek()).substring(0,3);
+        int cards1Index = 0;
+        int cards2Index = 0;
 
+        for (int i = 0; i < goal.length; i++){
+            if(cards1Index < cards1.length && goal[i].equals(cards1[cards1Index])) {
+                cards1Index++;
+            }
+            else if(cards2Index < cards2.length && goal[i].equals(cards2[cards2Index])) {
+                cards2Index++;
+            }
+            else {
+                answer = "No";
+            }
+        }
         return answer;
     }
 }
