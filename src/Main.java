@@ -1,19 +1,18 @@
 public class Main {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        String[] a1 = {"i", "drink", "water"};
-        String[] a2 = {"want", "to"};
-        String[] a3 = {"i", "want", "to", "drink", "water"};
 
-        String[] b1 = {"i", "water", "drink"};
-        String[] b2 = {"want", "to"};
-        String[] b3 = {"i", "want", "to", "drink", "water"};
+        int[] a = {1,2,3,1,2,3,1};
+        int[] b = {4, 1, 2, 2, 4, 4, 4, 4, 1, 2, 4, 2};
 
-        System.out.println(solution.solution(a1, a2, a3));
-        System.out.println(solution.solution(b1, b2, b3));
+        System.out.println(solution.solution(3,4,a));
+        System.out.println(solution.solution(4,3,b));
+
+
+
 
 
     }
 }
 // 문제 링크
-// https://school.programmers.co.kr/learn/courses/30/lessons/159994
+// https://school.programmers.co.kr/learn/courses/30/lessons/135808

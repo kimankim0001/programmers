@@ -1,24 +1,19 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
 class Solution {
-    public String solution(String[] cards1, String[] cards2, String[] goal) {
-        // 카드 뭉치 2개 cards1 cards2
-        // 원하는 순서의 단어 배열 조합 goal
-        // cards1 과 cards2 의 조합으로 goal 을 만들 수 있다면 Yes 리턴, 안되면 No 리턴
-        String answer = "Yes";
-
-        int cards1Index = 0;
-        int cards2Index = 0;
-
-        for (int i = 0; i < goal.length; i++){
-            if(cards1Index < cards1.length && goal[i].equals(cards1[cards1Index])) {
-                cards1Index++;
-            }
-            else if(cards2Index < cards2.length && goal[i].equals(cards2[cards2Index])) {
-                cards2Index++;
-            }
-            else {
-                answer = "No";
-            }
+    public int solution(int k, int m, int[] score) {
+        // 최종 함수 : k * m
+        // score 를 내림차순으로 정렬
+        // for (int i = 1; i*m-1 < score.length; i++)
+        // answer += score[i*m] * m;
+        Integer[] tmp = Arrays.stream(score).boxed().toArray(Integer[]::new);
+        Arrays.sort(tmp, Comparator.reverseOrder());
+        int answer = 0;
+        for (int i = 1; i*m-1 < tmp.length; i++){
+            answer += tmp[i*m-1] * m;
         }
+
         return answer;
     }
 }
