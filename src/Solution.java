@@ -1,28 +1,32 @@
 class Solution {
-    public int solution(int number, int limit, int power) {
-        // 기사 1~number 넘버링
-        // 기사 번호의 약수 개수 = 공격력
-        // 협약 공격력 limit 넘을경우 협약기관에서 정한 공격력 power
-        // 기사놈들의 총 공격력 구해야한다
-        // 시간 초과 떠서 약수를 구하는 다른 방식 참고하여 리팩토링
-
-        int answer = 0;
-        // 기사들의 무기 공격력 구하기
-        for (int i = 1; i <= number; i++){
-            int cnt = 0;
-            for (int j = 1; j*j <= i; j++){
-                if(j*j==i){
-                    cnt++;
-                } else if(i % j == 0){
-                    cnt+=2;
+    public int[] solution(int[] lottos, int[] win_nums) {
+        // 정답을 최고 1위와 최저 7위로 선언해두고
+        // 민우 번호에 0 이 있으면 그만큼 최고 순위에 마이너스 적용
+        // 이중 for 문으로 당첨번호와 민우 번호 비교
+        // 번호가 같으면 최저에 플러스 적용
+        // 번호가 다르면 최고에 마니어스 적용
+        // 최고 최저 7위이면 6위로 적용
+        int[] answer = {1,7};
+        for(int i = 0; i < 6; i++){
+            if(lottos[i] == 0){
+                answer[0]--;
+            }
+        }
+        for(int i = 0; i < 6; i++){
+            answer[0]++;
+            for(int j = 0; j < 6; j++){
+                if(win_nums[i] == lottos[j]){
+                    answer[1]--;
+                    answer[0]--;
                 }
             }
-            if (cnt > limit) {
-                cnt = power;
-            }
-            answer += cnt;
         }
-
+        if(answer[0] == 7){
+            answer[0] = 6;
+        }
+        if(answer[1] == 7){
+            answer[1] = 6;
+        }
         return answer;
     }
 }
