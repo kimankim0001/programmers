@@ -1,39 +1,39 @@
+import java.util.Arrays;
+
 class Solution {
-    public String solution(String X, String Y) {
+    public int solution(int n, int[] lost, int[] reserve) {
+        // 전략 :
+        // 빌려줄 수 있는지 검사하는 반복문
+        // 빌려줄 수 있는지의 조건문
+        int answer = n;
 
-        String answer = "";
-        StringBuilder sb = new StringBuilder();
+        Arrays.sort(reserve);
+        Arrays.sort(lost);
 
-        char[] x = X.toCharArray();
-        char[] y = Y.toCharArray();
+        answer = n - lost.length;
 
-        int[] xCheckCnt = new int[10];
-        int[] yCheckCnt = new int[10];
-
-        for(int i = 0; i < x.length; i++) {
-            int tmp = x[i] - '0';
-            xCheckCnt[tmp]++;
-        }
-        for(int i = 0; i < y.length; i++) {
-            int tmp = y[i] - '0';
-            yCheckCnt[tmp]++;
-        }
-
-        for(int i = 9; i >= 0; i--) {
-            int cnt = Math.min(xCheckCnt[i], yCheckCnt[i]);
-            for(int t = 0; t < cnt; t++) {
-                sb.append(i);
+        for (int i = 0; i < lost.length; i++) {
+            for (int j = 0; j < reserve.length; j++) {
+                if (lost[i] == reserve[j]) {
+                    answer++;
+                    lost[i] = -5;
+                    reserve[j] = -5;
+                    break;
+                }
             }
         }
-
-        answer = sb.toString();
-
-        if(answer.length() == 0) {
-            answer = "-1";
-        }
-
-        if(answer.charAt(0) == '0') {
-            answer = "0";
+        for(int i = 0; i < lost.length; i++){
+            for(int j = 0; j < reserve.length; j++){
+                if(lost[i] - 1 == reserve[j]){
+                    answer++;
+                    reserve[j] = -5;
+                    break;
+                } else if(lost[i] + 1 == reserve[j]){
+                    answer++;
+                    reserve[j] = -5;
+                    break;
+                }
+            }
         }
 
         return answer;
