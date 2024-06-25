@@ -1,41 +1,26 @@
-import java.util.Arrays;
-
 class Solution {
-    public int solution(int n, int[] lost, int[] reserve) {
-        // 전략 :
-        // 빌려줄 수 있는지 검사하는 반복문
-        // 빌려줄 수 있는지의 조건문
-        int answer = n;
+    public int solution(String s) {
+        int answer = 1;
 
-        Arrays.sort(reserve);
-        Arrays.sort(lost);
+        // 문자의 갯수
+        int count = 1;
 
-        answer = n - lost.length;
+        // 이전 문자
+        char x = s.charAt(0);
 
-        for (int i = 0; i < lost.length; i++) {
-            for (int j = 0; j < reserve.length; j++) {
-                if (lost[i] == reserve[j]) {
-                    answer++;
-                    lost[i] = -5;
-                    reserve[j] = -5;
-                    break;
-                }
+        // 문자를 비교 같으면 문자의 갯수 늘려주고 다르면 문자의 갯수 줄여주고
+        // 문자의 갯수 0이되면 조건에 횟수가 같아지는 순간이므로 문자열 분리
+        for (int i = 1; i < s.length(); i++) {
+            if (count == 0) {
+                answer++;
+                x = s.charAt(i);
+            }
+            if (x == s.charAt(i)) {
+                count++;
+            } else {
+                count--;
             }
         }
-        for(int i = 0; i < lost.length; i++){
-            for(int j = 0; j < reserve.length; j++){
-                if(lost[i] - 1 == reserve[j]){
-                    answer++;
-                    reserve[j] = -5;
-                    break;
-                } else if(lost[i] + 1 == reserve[j]){
-                    answer++;
-                    reserve[j] = -5;
-                    break;
-                }
-            }
-        }
-
         return answer;
     }
 }
