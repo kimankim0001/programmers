@@ -2,11 +2,14 @@ public class Main {
     public static void main(String[] args) {
         Solution solution = new Solution();
 
-        System.out.println(solution.solution("aukks","wbqd",5));
-        System.out.println(solution.solution("ilsa","abzq",3));
+        int[] a = {2, 1, 1, 2, 3, 1, 2, 3, 1};
+        int[] b = {1, 3, 2, 1, 2, 1, 3, 1, 2};
+
+        System.out.println(solution.solution(a));
+        System.out.println(solution.solution(b));
 
 
     }
 }
 // 문제 링크
-// https://school.programmers.co.kr/learn/courses/30/lessons/155652
+// https://school.programmers.co.kr/learn/courses/30/lessons/133502

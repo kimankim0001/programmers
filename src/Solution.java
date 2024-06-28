@@ -1,27 +1,29 @@
+import java.util.*;
+
 class Solution {
-    public String solution(String s, String skip, int index) {
+    public int solution(int[] ingredient) {
         // 전략 :
-        // 1. s 를 char c 로 하나씩 형변환
-        // 2. index 만큼 c++
-        // 2-1. 여기서 조건은 c > z 다시 a
-        // 2-2. 추가 조건은 skip 과 중복일때 index 한번더 추가
+        // 배열을 순회하며 1,2,3,1 이 완성되면 answer++;
+        // 완성된 1,2,3,1 없애고 다시 순회
         // 코드 :
-        // 1. char c = s.charAt()
-        // 2-1. if(c > z) {c = c - 26}
-        // 2-2. if(skip.contains(String.valueOf(c))){i = i-1}
-        String answer = "";
-        for(int i = 0; i < s.length(); i++){
-            char c = s.charAt(i);
-            for(int j = 0; j < index; j++){
-                c += 1;
-                if(c > 'z'){
-                    c -= 26;
-                }
-                if(skip.contains(String.valueOf(c))){
-                    j--;
+        // ArrayList<Integer> list = new ArrayList<>();
+        // list.add(ingredient[i]);
+        // list.get(list.size()-4) == 1
+        // list.get(list.size()-3) == 2
+        // list.get(list.size()-2) == 3
+        // list.get(list.size()-1) == 1
+        int answer = 0;
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for (int i = 0; i < ingredient.length; i++) {
+            list.add(ingredient[i]);
+            if (list.size() >= 4 && list.get(list.size() - 4) == 1 && list.get(list.size() - 3) == 2 && list.get(list.size() - 2) == 3 && list.get(list.size() - 1) == 1) {
+                answer++;
+                for (int j = 0; j < 4; j++) {
+                    list.remove(list.size() - 1);
                 }
             }
-            answer += c;
         }
         return answer;
     }
