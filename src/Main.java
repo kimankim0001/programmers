@@ -2,14 +2,17 @@ public class Main {
     public static void main(String[] args) {
         Solution solution = new Solution();
 
-        int[] a = {2, 1, 1, 2, 3, 1, 2, 3, 1};
-        int[] b = {1, 3, 2, 1, 2, 1, 3, 1, 2};
+        String[] a1 = {"AN", "CF", "MJ", "RT", "NA"};
+        String[] a2 = {"TR", "RT", "TR"};
 
-        System.out.println(solution.solution(a));
-        System.out.println(solution.solution(b));
+        int[] b1 = {5, 3, 2, 7, 5};
+        int[] b2 = {7, 1, 3};
+
+        System.out.println(solution.solution(a1,b1));
+        System.out.println(solution.solution(a2,b2));
 
 
     }
 }
 // 문제 링크
-// https://school.programmers.co.kr/learn/courses/30/lessons/133502
+// https://school.programmers.co.kr/learn/courses/30/lessons/118666

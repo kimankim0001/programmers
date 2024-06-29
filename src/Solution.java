@@ -1,30 +1,27 @@
 import java.util.*;
 
 class Solution {
-    public int solution(int[] ingredient) {
-        // 전략 :
-        // 배열을 순회하며 1,2,3,1 이 완성되면 answer++;
-        // 완성된 1,2,3,1 없애고 다시 순회
-        // 코드 :
-        // ArrayList<Integer> list = new ArrayList<>();
-        // list.add(ingredient[i]);
-        // list.get(list.size()-4) == 1
-        // list.get(list.size()-3) == 2
-        // list.get(list.size()-2) == 3
-        // list.get(list.size()-1) == 1
-        int answer = 0;
+    public String solution(String[] survey, int[] choices) {
+        Map<Character, Integer> map = new HashMap<>();
 
-        ArrayList<Integer> list = new ArrayList<>();
+        for(int i = 0; i< survey.length; i++) {
+            int value = choices[i];
 
-        for (int i = 0; i < ingredient.length; i++) {
-            list.add(ingredient[i]);
-            if (list.size() >= 4 && list.get(list.size() - 4) == 1 && list.get(list.size() - 3) == 2 && list.get(list.size() - 2) == 3 && list.get(list.size() - 1) == 1) {
-                answer++;
-                for (int j = 0; j < 4; j++) {
-                    list.remove(list.size() - 1);
-                }
+            if(value > 0 && value < 4) {
+                char ch = survey[i].charAt(0);
+                map.put(ch, map.getOrDefault(ch, 0) + 4 - value);
+            } else if(value > 4) {
+                char ch = survey[i].charAt(1);
+                map.put(ch, map.getOrDefault(ch, 0) + value - 4);
             }
+
         }
-        return answer;
+
+        return new StringBuilder()
+                .append(map.getOrDefault('R', 0) >= map.getOrDefault('T', 0) ? 'R' : 'T')
+                .append(map.getOrDefault('C', 0) >= map.getOrDefault('F', 0) ? 'C' : 'F')
+                .append(map.getOrDefault('J', 0) >= map.getOrDefault('M', 0) ? 'J' : 'M')
+                .append(map.getOrDefault('A', 0) >= map.getOrDefault('N', 0) ? 'A' : 'N')
+                .toString();
     }
 }
