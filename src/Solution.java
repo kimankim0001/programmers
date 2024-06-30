@@ -1,27 +1,23 @@
-import java.util.*;
-
 class Solution {
-    public String solution(String[] survey, int[] choices) {
-        Map<Character, Integer> map = new HashMap<>();
+    public int[] solution(String[] wallpaper) {
+        int[] answer = new int[]{
+                Integer.MAX_VALUE,
+                Integer.MAX_VALUE,
+                Integer.MIN_VALUE,
+                Integer.MIN_VALUE
+        };
 
-        for(int i = 0; i< survey.length; i++) {
-            int value = choices[i];
-
-            if(value > 0 && value < 4) {
-                char ch = survey[i].charAt(0);
-                map.put(ch, map.getOrDefault(ch, 0) + 4 - value);
-            } else if(value > 4) {
-                char ch = survey[i].charAt(1);
-                map.put(ch, map.getOrDefault(ch, 0) + value - 4);
+        for (int i = 0; i < wallpaper.length; i++) {
+            for (int j = 0; j < wallpaper[i].length(); j++) {
+                if (wallpaper[i].charAt(j) == '#') {
+                    answer[0] = Math.min(i, answer[0]);
+                    answer[1] = Math.min(j, answer[1]);
+                    answer[2] = Math.max(i + 1, answer[2]);
+                    answer[3] = Math.max(j + 1, answer[3]);
+                }
             }
-
         }
 
-        return new StringBuilder()
-                .append(map.getOrDefault('R', 0) >= map.getOrDefault('T', 0) ? 'R' : 'T')
-                .append(map.getOrDefault('C', 0) >= map.getOrDefault('F', 0) ? 'C' : 'F')
-                .append(map.getOrDefault('J', 0) >= map.getOrDefault('M', 0) ? 'J' : 'M')
-                .append(map.getOrDefault('A', 0) >= map.getOrDefault('N', 0) ? 'A' : 'N')
-                .toString();
+        return answer;
     }
 }

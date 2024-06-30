@@ -1,18 +1,22 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         Solution solution = new Solution();
 
-        String[] a1 = {"AN", "CF", "MJ", "RT", "NA"};
-        String[] a2 = {"TR", "RT", "TR"};
+        String[] a1 = {".#...", "..#..", "...#."};
+        String[] a2 = {"..........", ".....#....", "......##..", "...##.....", "....#....."};
+        String[] a3 = {".##...##.", "#..#.#..#", "#...#...#", ".#.....#.", "..#...#..", "...#.#...", "....#...."};
+        String[] a4 = {"..", "#."};
 
-        int[] b1 = {5, 3, 2, 7, 5};
-        int[] b2 = {7, 1, 3};
 
-        System.out.println(solution.solution(a1,b1));
-        System.out.println(solution.solution(a2,b2));
+        System.out.println(Arrays.toString(solution.solution(a1)));
+        System.out.println(Arrays.toString(solution.solution(a2)));
+        System.out.println(Arrays.toString(solution.solution(a3)));
+        System.out.println(Arrays.toString(solution.solution(a4)));
 
 
     }
 }
 // 문제 링크
-// https://school.programmers.co.kr/learn/courses/30/lessons/118666
+// https://school.programmers.co.kr/learn/courses/30/lessons/161990
