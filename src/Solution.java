@@ -1,23 +1,33 @@
-class Solution {
-    public int[] solution(String[] wallpaper) {
-        int[] answer = new int[]{
-                Integer.MAX_VALUE,
-                Integer.MAX_VALUE,
-                Integer.MIN_VALUE,
-                Integer.MIN_VALUE
-        };
+import java.util.*;
 
-        for (int i = 0; i < wallpaper.length; i++) {
-            for (int j = 0; j < wallpaper[i].length(); j++) {
-                if (wallpaper[i].charAt(j) == '#') {
-                    answer[0] = Math.min(i, answer[0]);
-                    answer[1] = Math.min(j, answer[1]);
-                    answer[2] = Math.max(i + 1, answer[2]);
-                    answer[3] = Math.max(j + 1, answer[3]);
-                }
-            }
+class Solution {
+    public int[] solution(String today, String[] terms, String[] privacies) {
+
+        ArrayList<Integer> answer = new ArrayList<>();
+        HashMap<String, Integer> map = new HashMap<>();
+
+        int date = getDate(today);
+
+        for (String s : terms) {
+            String[] term = s.split(" ");
+            map.put(term[0], Integer.parseInt(term[1]));
         }
 
-        return answer;
+        for (int i = 0; i < privacies.length; i++) {
+            String[] privacy = privacies[i].split(" ");
+
+            if (getDate(privacy[0]) + (map.get(privacy[1]) * 28) <= date) {
+                answer.add(i + 1);
+            }
+        }
+        return answer.stream().mapToInt(integer -> integer).toArray();
+    }
+
+    private int getDate(String today) {
+        String[] date = today.split("\\.");
+        int year = Integer.parseInt(date[0]);
+        int month = Integer.parseInt(date[1]);
+        int day = Integer.parseInt(date[2]);
+        return (year * 12 * 28) + (month * 28) + day;
     }
 }
