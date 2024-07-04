@@ -1,52 +1,35 @@
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+
 class Solution {
-    public int[] solution(String[] park, String[] routes) {
-        int sx = 0;
-        int sy = 0;
+    public int[] solution(String[] idList, String[] report, int k) {
 
-        char[][] arr = new char[park.length][park[0].length()];
+        int[] answer = new int[idList.length];
+        HashMap<String, HashSet<String>> reporterInfoMap = new HashMap<>();
+        HashMap<String, Integer> reportedCountInfoMap = new HashMap<>();
+        HashSet<String> reportSet = new HashSet<>(Arrays.asList(report));
 
-        for (int i = 0; i < park.length; i++) {
-            arr[i] = park[i].toCharArray();
-
-            if (park[i].contains("S")) {
-                sy = i;
-                sx = park[i].indexOf("S");
-            }
+        for (String reportInfo : reportSet) {
+            String reporter = reportInfo.split(" ")[0];
+            String reported = reportInfo.split(" ")[1];
+            reporterInfoMap.putIfAbsent(reporter, new HashSet<String>() {{
+                add(reported);
+            }});
+            reporterInfoMap.get(reporter).add(reported);
+            reportedCountInfoMap.put(reported, reportedCountInfoMap.getOrDefault(reported, 0) + 1);
         }
 
-        for (String st : routes) {
-            String way = st.split(" ")[0];
-            int len = Integer.parseInt(st.split(" ")[1]);
-
-            int nx = sx;
-            int ny = sy;
-
-            for (int i = 0; i < len; i++) {
-                if (way.equals("E")) {
-                    nx++;
-                }
-                if (way.equals("W")) {
-                    nx--;
-                }
-                if (way.equals("S")) {
-                    ny++;
-                }
-                if (way.equals("N")) {
-                    ny--;
-                }
-                if (nx >= 0 && ny >= 0 && ny < arr.length && nx < arr[0].length) {
-                    if (arr[ny][nx] == 'X') {
-                        break;
-                    }
-                    if (i == len - 1) {
-                        sx = nx;
-                        sy = ny;
+        for (String reported : reportedCountInfoMap.keySet()) {
+            int reportedCount = reportedCountInfoMap.get(reported);
+            if (reportedCount >= k) {
+                for (int i = 0; i < idList.length; i++) {
+                    if (reporterInfoMap.containsKey(idList[i]) && reporterInfoMap.get(idList[i]).contains(reported)) {
+                        answer[i]++;
                     }
                 }
             }
         }
-
-        int[] answer = {sy, sx};
         return answer;
     }
 }
