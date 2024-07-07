@@ -1,22 +1,37 @@
 class Solution {
-    public String solution(String s) {
-        String answer = "";
+    public long solution(long n) {
+        // 전략 :
+        // long  -> String
+        // String -> int[]
+        // int[] 내림차순
+        // int[] -> long
 
-        String[] arr = s.split(" ");
+        String s = Long.toString(n);
 
-        for (int i = 0; i < arr.length; i++) {
-            String now = arr[i];
-            if (arr[i].length() == 0) {
-                answer += " ";
-            } else {
-                answer += now.substring(0, 1).toUpperCase();
-                answer += now.substring(1, now.length()).toLowerCase();
-                answer += " ";
+        int[] intArr = new int[s.length()];
+
+        for (int i = 0; i < intArr.length; i++) {
+            intArr[i] = Integer.parseInt(s.substring(i, i + 1));
+        }
+
+        for (int i = 0; i < intArr.length; i++) {
+            for (int j = 0; j < intArr.length; j++) {
+                if (intArr[i] > intArr[j]) {
+                    int temp = intArr[j];
+                    intArr[j] = intArr[i];
+                    intArr[i] = temp;
+                }
             }
         }
-        if (s.substring(s.length() - 1, s.length()).equals(" ")) {
-            return answer;
+
+        String answer = "";
+
+        for (int i = 0; i < intArr.length; i++) {
+            answer += intArr[i];
         }
-        return answer.substring(0, answer.length() - 1);
+
+        return Long.parseLong(answer);
+
+
     }
 }
