@@ -1,37 +1,25 @@
 class Solution {
-    public long solution(long n) {
-        // 전략 :
-        // long  -> String
-        // String -> int[]
-        // int[] 내림차순
-        // int[] -> long
+    public boolean solution(int x) {
+        // 전략
+        // int -> String
+        // substring
+        // parseInt
+        // sum
+        boolean answer = true;
 
-        String s = Long.toString(n);
+        String str = String.valueOf(x);
 
-        int[] intArr = new int[s.length()];
-
-        for (int i = 0; i < intArr.length; i++) {
-            intArr[i] = Integer.parseInt(s.substring(i, i + 1));
+        int sum = 0;
+        for (int i = 0; i < str.length(); i++) {
+            sum += Integer.parseInt(str.substring(i, i + 1));
         }
 
-        for (int i = 0; i < intArr.length; i++) {
-            for (int j = 0; j < intArr.length; j++) {
-                if (intArr[i] > intArr[j]) {
-                    int temp = intArr[j];
-                    intArr[j] = intArr[i];
-                    intArr[i] = temp;
-                }
-            }
+        if (x % sum == 0) {
+            answer = true;
+        } else {
+            answer = false;
         }
 
-        String answer = "";
-
-        for (int i = 0; i < intArr.length; i++) {
-            answer += intArr[i];
-        }
-
-        return Long.parseLong(answer);
-
-
+        return answer;
     }
 }
