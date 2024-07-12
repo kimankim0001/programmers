@@ -1,20 +1,18 @@
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
 
-        int[] a = {5, 9, 7, 10};
-        int[] b = {2, 36, 1, 3};
-        int[] c = {3, 2, 6};
+        int[] a1 = {4, 7, 12};
+        int[] a2 = {1, 2, 3};
 
-        System.out.println(Arrays.toString(solution.solution(a, 5)));
-        System.out.println(Arrays.toString(solution.solution(b, 1)));
-        System.out.println(Arrays.toString(solution.solution(c, 10)));
+        boolean[] b1 = {true, false, true};
+        boolean[] b2 = {false, false, true};
 
+        System.out.println(solution.solution(a1, b1));
+        System.out.println(solution.solution(a2, b2));
 
     }
 }
 // 문제 링크
-// https://school.programmers.co.kr/learn/courses/30/lessons/12910
+// https://school.programmers.co.kr/learn/courses/30/lessons/76501

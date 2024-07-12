@@ -1,35 +1,17 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-
 class Solution {
 
-    public int[] solution(int[] arr, int divisor) {
-        // 전략
-        // ArrayList
-        // arr[] % divisor == 0 일때, add
-        // size = 0, -1 add
-        // Arrays.sort()
-
-        int[] answer = {};
-
-        ArrayList<Integer> list = new ArrayList<>();
-
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] % divisor == 0) {
-                list.add(arr[i]);
+    public int solution(int[] absolutes, boolean[] signs) {
+        // 전략 :
+        // if(signs[i] == true) {answer += absolutes[i]}
+        // if(signs[i] == false) {answer -= absolutes[i]}
+        int answer = 0;
+        for (int i = 0; i < absolutes.length; i++) {
+            if (signs[i] == true) {
+                answer += absolutes[i];
+            } else if (signs[i] == false) {
+                answer -= absolutes[i];
             }
         }
-
-        if (list.size() == 0) {
-            answer = new int[]{-1};
-        } else {
-            answer = new int[list.size()];
-            for (int i = 0; i < list.size(); i++) {
-                answer[i] = list.get(i);
-            }
-            Arrays.sort(answer);
-        }
-
         return answer;
     }
 }
