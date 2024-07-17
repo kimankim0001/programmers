@@ -1,16 +1,17 @@
 class Solution {
-    public String solution(String s) {
+
+    public String solution(int n) {
         // 전략
-        // 길이가 짝수면 두글자 홀수면 한글자
-        // s.substring
-        // s.length/2-1, s.length/2+1
-        // s.length/2, s.length/2+1
+        // 인덱스 번호가 짝수면 수
+        // 인덱스 번호가 홀수면 박
         String answer = "";
 
-        if (s.length() % 2 == 0) {
-            answer = s.substring(s.length()/2-1, s.length()/2+1);
-        } else {
-            answer = s.substring(s.length()/2, s.length()/2+1);
+        for (int i = 0; i < n; i++) {
+            if (i % 2 == 0) {
+                answer += "수";
+            } else {
+                answer += "박";
+            }
         }
         return answer;
     }
