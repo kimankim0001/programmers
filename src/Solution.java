@@ -1,17 +1,12 @@
 class Solution {
 
-    public String solution(int n) {
+    public int solution(int[] a, int[] b) {
         // 전략
-        // 인덱스 번호가 짝수면 수
-        // 인덱스 번호가 홀수면 박
-        String answer = "";
+        // 내적은 두 배열의 곱을 더한것
+        int answer = 0;
 
-        for (int i = 0; i < n; i++) {
-            if (i % 2 == 0) {
-                answer += "수";
-            } else {
-                answer += "박";
-            }
+        for (int i = 0; i < a.length; i++) {
+            answer += a[i] * b[i];
         }
         return answer;
     }
