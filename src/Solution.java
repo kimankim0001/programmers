@@ -1,25 +1,19 @@
+import java.util.Arrays;
+
 class Solution {
 
-    public int solution(int left, int right) {
+    public String solution(String s) {
         // 전략
-        // left++ <= right
-        // 약수의 개수 카운트
-        // 홀이면 -, 짝이면 +
-        int answer = 0;
-
-        for (int i = left; i <= right; i++) {
-            int countNum = 0;
-            for (int j = 1; j <= i; j++) {
-                if (i % j == 0) {
-                    countNum++;
-                }
-            }
-            if (countNum % 2 == 0) {
-                answer += i;
-            } else {
-                answer -= i;
-            }
-        }
+        // 배열에 넣기
+        // 정렬
+        // 문자열로 변경
+        // 내림차순으로 정렬
+        String answer = "";
+        char[] arr = s.toCharArray();
+        Arrays.sort(arr);
+        String str = new String(arr);
+        StringBuilder sb = new StringBuilder(str);
+        answer = sb.reverse().toString();
         return answer;
     }
 }
