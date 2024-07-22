@@ -1,24 +1,19 @@
 class Solution {
 
-    public long solution(int price, int money, int count) {
+    public boolean solution(String s) {
         // 전략
-        // 기존 이용료 price
-        // 내가 가진 돈 money
-        // 이용 횟수 count
-        // price * 1~count
-        // 부족한 금액 result
-        // 부족하지 않을 때는 0
-        long answer = 0L;
+        // s.length() = 4~6
+        // s = int type only
+        // 아스키코드 48~57 로 비교
 
-        long total = 0;
-        for (int i = 1; i <= count; i++) {
-            total += price * i;
+        boolean answer = true;
+        if (s.length() != 4 && s.length() != 6) {
+            answer = false;
         }
-
-        if (total > money) {
-            answer = total - money;
-        } else {
-            answer = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) < 48 || s.charAt(i) > 57) {
+                answer = false;
+            }
         }
         return answer;
     }
