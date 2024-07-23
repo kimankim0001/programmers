@@ -1,18 +1,14 @@
 class Solution {
 
-    public boolean solution(String s) {
+    public int[][] solution(int[][] arr1, int[][] arr2) {
         // 전략
-        // s.length() = 4~6
-        // s = int type only
-        // 아스키코드 48~57 로 비교
+        // 2차원 배열 같은 행 같은 열 끼리의 합
+        // arr1[i][j] + arr2[i][j]
+        int[][] answer = new int[arr1.length][arr1[0].length];
 
-        boolean answer = true;
-        if (s.length() != 4 && s.length() != 6) {
-            answer = false;
-        }
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) < 48 || s.charAt(i) > 57) {
-                answer = false;
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr1[0].length; j++) {
+                answer[i][j] = arr1[i][j] + arr2[i][j];
             }
         }
         return answer;
