@@ -1,27 +1,19 @@
 class Solution {
 
-    public String solution(String s) {
+    public int solution(int[] number) {
         // 전략
-        // s.split("")
-        // 띄어쓰기 나오면 초기화
-        // String.toUpperCase()
-        // String.toLowerCase()
-        String answer = "";
+        // 세명의 번호의 합이 0 일때 삼총사 ++
+        // 3중 for 문
+        int answer = 0;
 
-        String[] str = s.split("");
-
-        int index = 0;
-        for (int i = 0; i < str.length; i++) {
-            if (str[i].equals(" ")) {
-                index = 0;
-            } else if (index % 2 == 0) {
-                str[i] = str[i].toUpperCase();
-                index++;
-            } else if (index % 2 == 1) {
-                str[i] = str[i].toLowerCase();
-                index++;
+        for (int i = 0; i < number.length; i++) {
+            for (int j = i + 1; j < number.length; j++) {
+                for (int k = j + 1; k < number.length; k++) {
+                    if (number[i] + number[j] + number[k] == 0) {
+                        answer++;
+                    }
+                }
             }
-            answer += str[i];
         }
         return answer;
     }
