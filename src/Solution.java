@@ -1,17 +1,28 @@
 class Solution {
 
-    public int solution(int n) {
+    public String solution(String s) {
         // 전략
-        // n%3 을 String 타입의 변수에 반복해서 할당
-        // N진법 -> 10진법 으로 바꾸는 Integer.parseInt(i, N); 활용
-        int answer = 0;
+        // s.split("")
+        // 띄어쓰기 나오면 초기화
+        // String.toUpperCase()
+        // String.toLowerCase()
+        String answer = "";
 
-        String str = "";
-        while (n != 0) {
-            str += n % 3;
-            n /= 3;
+        String[] str = s.split("");
+
+        int index = 0;
+        for (int i = 0; i < str.length; i++) {
+            if (str[i].equals(" ")) {
+                index = 0;
+            } else if (index % 2 == 0) {
+                str[i] = str[i].toUpperCase();
+                index++;
+            } else if (index % 2 == 1) {
+                str[i] = str[i].toLowerCase();
+                index++;
+            }
+            answer += str[i];
         }
-
-        return answer = Integer.parseInt(str, 3);
+        return answer;
     }
 }
