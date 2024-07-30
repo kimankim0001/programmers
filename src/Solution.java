@@ -1,26 +1,29 @@
 class Solution {
 
-    public int solution(String t, String p) {
+    public int solution(int[][] sizes) {
         // 전략
-        // p의 길이만큼 t에서 잘랐을때
-        // t의 잘린값이 p의 값보다 작거나 같으면 answer++
-        // String 타입이므로 비교를 하기 위해선 Int 타입으로 형변환
-        // t.length()-p.length()+1
-        // p의 길이만큼 t에서 substring 하고 비교해보기
-        // Int 타입으로 하니까 런타임 에러, Long 타입으로 형변환
-        // 1 ≤ p의 길이 ≤ 18
-
+        // 가로 와 세로를 비교해서 더 큰 수를 가로에 몰아주기(회전)
+        // 가로의 Max r 세로의 Max c
         int answer = 0;
 
-        long pp = Long.parseLong(p);
+        int max_r = 0;
 
-        for (int i = 0; i < t.length() - p.length() + 1; i++) {
-            long tt = Long.parseLong(t.substring(i, i + p.length()));
-            if (tt <= pp) {
-                answer++;
+        int max_c = 0;
+
+        for (int i = 0; i < sizes.length; i++) {
+            if (sizes[i][0] < sizes[i][1]) {
+                int tmp = sizes[i][0];
+                sizes[i][0] = sizes[i][1];
+                sizes[i][1] = tmp;
+            }
+            if (max_r < sizes[i][0]) {
+                max_r = sizes[i][0];
+            }
+            if (max_c < sizes[i][1]) {
+                max_c = sizes[i][1];
             }
         }
 
-        return answer;
+        return answer = max_r * max_c;
     }
 }
