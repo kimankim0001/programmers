@@ -1,29 +1,25 @@
 class Solution {
 
-    public int solution(int[][] sizes) {
+    public String solution(String s, int n) {
         // 전략
-        // 가로 와 세로를 비교해서 더 큰 수를 가로에 몰아주기(회전)
-        // 가로의 Max r 세로의 Max c
-        int answer = 0;
+        // 아스키 코드 이용
+        // char 타입으로 연산
+        // 공백은 그냥 공백처리
+        // 소문자일 경우 answer += (char) ((ch - 'a' + n)%26 + 'a');
+        // 대문자일 경우 answer += (char) ((ch - 'A' + n)%26 + 'A');
+        String answer = "";
 
-        int max_r = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch == ' ') {
+                answer += ch;
+            } else if (Character.isLowerCase(ch)) {
+                answer += (char) ((ch - 'a' + n) % 26 + 'a');
+            } else if (Character.isUpperCase(ch)) {
+                answer += (char) ((ch - 'A' + n) % 26 + 'A');
+            }
 
-        int max_c = 0;
-
-        for (int i = 0; i < sizes.length; i++) {
-            if (sizes[i][0] < sizes[i][1]) {
-                int tmp = sizes[i][0];
-                sizes[i][0] = sizes[i][1];
-                sizes[i][1] = tmp;
-            }
-            if (max_r < sizes[i][0]) {
-                max_r = sizes[i][0];
-            }
-            if (max_c < sizes[i][1]) {
-                max_c = sizes[i][1];
-            }
         }
-
-        return answer = max_r * max_c;
+        return answer;
     }
 }
