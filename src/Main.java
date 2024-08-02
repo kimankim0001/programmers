@@ -1,14 +1,19 @@
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
 
         Solution solution = new Solution();
 
-        System.out.println(solution.solution("one4seveneight"));
-        System.out.println(solution.solution("23four5six7"));
-        System.out.println(solution.solution("2three45sixseven"));
-        System.out.println(solution.solution("123"));
+        String[] s = {"sun", "bed", "car"};
+        String[] s2 = {"abce", "abcd", "cdx"};
+
+        System.out.println(Arrays.toString(solution.solution(s,1)));
+        System.out.println(Arrays.toString(solution.solution(s2,2)));
+
+
     }
 }
 // 문제 링크
-// https://school.programmers.co.kr/learn/courses/30/lessons/81301
+// https://school.programmers.co.kr/learn/courses/30/lessons/12915

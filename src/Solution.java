@@ -1,21 +1,20 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
 class Solution {
 
-    public int solution(String s) {
+    public String[] solution(String[] strings, int n) {
         // 전략
-        // 0~9까지 영어로 나열
-        // 반복문으로 영어를 숫자로 교체
-        // replace([기존문자],[바꿀문자])
-        // int 로 반환
-        int answer = 0;
+        // 문자열 sort
+        // n 번째 인덱스 기준으로 정렬
 
-        String[] arr = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+        String[] answer = {};
 
-        for (int i = 0; i < 10; i++) {
-            s = s.replace(arr[i], String.valueOf(i));
-        }
+        Arrays.sort(strings);
 
-        answer = Integer.parseInt(s);
+        Arrays.sort(strings, Comparator.comparing((s) -> s.substring(n, n + 1)));
 
+        answer = strings;
         return answer;
     }
 }
