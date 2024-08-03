@@ -6,14 +6,13 @@ public class Main {
 
         Solution solution = new Solution();
 
-        String[] s = {"sun", "bed", "car"};
-        String[] s2 = {"abce", "abcd", "cdx"};
+        int[] a = {1, 5, 2, 6, 3, 7, 4};
+        int[][] b = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
 
-        System.out.println(Arrays.toString(solution.solution(s,1)));
-        System.out.println(Arrays.toString(solution.solution(s2,2)));
+        System.out.println(Arrays.toString(solution.solution(a, b)));
 
 
     }
 }
 // 문제 링크
-// https://school.programmers.co.kr/learn/courses/30/lessons/12915
+// https://school.programmers.co.kr/learn/courses/30/lessons/42748

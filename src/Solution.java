@@ -1,20 +1,19 @@
 import java.util.Arrays;
-import java.util.Comparator;
 
 class Solution {
 
-    public String[] solution(String[] strings, int n) {
+    public int[] solution(int[] array, int[][] commands) {
         // 전략
-        // 문자열 sort
-        // n 번째 인덱스 기준으로 정렬
+        // command 의 0번째 인덱스 숫자부터 1번째 인덱스 숫자까지
+        // 이후에 정렬해서 2번째 인덱스 숫자의 위치에 있는걸 반환
 
-        String[] answer = {};
+        int[] answer = new int[commands.length];
 
-        Arrays.sort(strings);
-
-        Arrays.sort(strings, Comparator.comparing((s) -> s.substring(n, n + 1)));
-
-        answer = strings;
+        for (int i = 0; i < commands.length; i++) {
+            int[] temp = Arrays.copyOfRange(array, commands[i][0] - 1, commands[i][1]);
+            Arrays.sort(temp);
+            answer[i] = temp[commands[i][2] - 1];
+        }
         return answer;
     }
 }
