@@ -1,19 +1,30 @@
-import java.util.Arrays;
+import java.util.*;
 
 class Solution {
+    // 전략
+    // 두 개의 수를 더해서 만들 수 있는 모든 경우의 수
+    // 모든 경우를 다 합치기
+    // 중복값이 나오므로 set 사용
+    // 정렬 sort
+    public int[] solution(int[] numbers) {
 
-    public int[] solution(int[] array, int[][] commands) {
-        // 전략
-        // command 의 0번째 인덱스 숫자부터 1번째 인덱스 숫자까지
-        // 이후에 정렬해서 2번째 인덱스 숫자의 위치에 있는걸 반환
+        Set<Integer> set = new HashSet<>();
 
-        int[] answer = new int[commands.length];
-
-        for (int i = 0; i < commands.length; i++) {
-            int[] temp = Arrays.copyOfRange(array, commands[i][0] - 1, commands[i][1]);
-            Arrays.sort(temp);
-            answer[i] = temp[commands[i][2] - 1];
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = i + 1; j < numbers.length; j++) {
+                int sum = numbers[i] + numbers[j];
+                set.add(sum);
+            }
         }
+
+        int[] answer = new int[set.size()];
+
+        int idx = 0;
+
+        for (int num : set) {
+            answer[idx++] = num;
+        }
+        Arrays.sort(answer);
         return answer;
     }
 }
