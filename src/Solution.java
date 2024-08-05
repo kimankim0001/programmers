@@ -1,30 +1,23 @@
-import java.util.*;
-
 class Solution {
-    // 전략
-    // 두 개의 수를 더해서 만들 수 있는 모든 경우의 수
-    // 모든 경우를 다 합치기
-    // 중복값이 나오므로 set 사용
-    // 정렬 sort
-    public int[] solution(int[] numbers) {
 
-        Set<Integer> set = new HashSet<>();
+    public int[] solution(String s) {
+        // 전략
+        // 처음 나온 글자 -1
+        // 앞에 같은 글자가 있으면 그만큼 0에서 ++
+        // 같은 글자 answer[i] 에 저장
+        // answer[i] 가 0 이라면 같은 글자가 없으니까 -1 리턴
+        int[] answer = new int[s.length()];
 
-        for (int i = 0; i < numbers.length; i++) {
-            for (int j = i + 1; j < numbers.length; j++) {
-                int sum = numbers[i] + numbers[j];
-                set.add(sum);
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i; j >= 0; j--) {
+                if (s.charAt(i) == s.charAt(j) && answer[i] == 0) {
+                    answer[i] = i - j;
+                }
+            }
+            if (answer[i] == 0) {
+                answer[i] = -1;
             }
         }
-
-        int[] answer = new int[set.size()];
-
-        int idx = 0;
-
-        for (int num : set) {
-            answer[idx++] = num;
-        }
-        Arrays.sort(answer);
         return answer;
     }
 }
