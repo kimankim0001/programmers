@@ -4,9 +4,10 @@ public class Main {
 
         Solution solution = new Solution();
 
-        System.out.println(solution.solution(new int[]{1, 3, 4, 6}));
-        System.out.println(solution.solution(new int[]{1, 7, 1, 2}));
+        System.out.println(solution.solution(2,1,20));
+        System.out.println(solution.solution(3,1,20));
+
     }
 }
 // 문제 링크
-// https://school.programmers.co.kr/learn/courses/30/lessons/134240
+// https://school.programmers.co.kr/learn/courses/30/lessons/132267
