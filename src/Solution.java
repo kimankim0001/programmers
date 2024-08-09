@@ -1,24 +1,16 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.time.LocalDate;
 
 class Solution {
 
-    public int[] solution(int k, int[] score) {
+    public String solution(int a, int b) {
         // 전략
-        // 랭킹을 k 만큼 담고 최소값을 리턴하다가
-        // 담은 랭킹의 수가 k 보다 커지면 최소값을 없애고 다시 최소값을 리턴
-        int[] answer = new int[score.length];
+        // a 월 b 일 의 요일찾기
+        // 요일의 이름은 앞에 3글자
+        String answer = "";
 
-        List<Integer> rank = new ArrayList<>();
+        LocalDate date = LocalDate.of(2016, a, b);
 
-        for (int i = 0; i < score.length; i++) {
-            rank.add(score[i]);
-            if (rank.size() > k) {
-                rank.remove(Collections.min(rank));
-            }
-            answer[i] = Collections.min(rank);
-        }
+        answer = String.valueOf(date.getDayOfWeek()).substring(0, 3);
 
         return answer;
     }
