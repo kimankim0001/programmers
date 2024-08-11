@@ -4,18 +4,12 @@ public class Main {
 
         Solution solution = new Solution();
 
-        String[] a1 = {"i", "drink", "water"};
-        String[] a2 = {"want", "to"};
-        String[] a3 = {"i", "want", "to", "drink", "water"};
+        System.out.println(solution.solution(3,4, new int[]{1, 2, 3, 1, 2, 3, 1}));
+        System.out.println(solution.solution(4,3, new int[]{4, 1, 2, 2, 4, 4, 4, 4, 1, 2, 4, 2}));
 
-        String[] b1 = {"i", "water", "drink"};
-        String[] b2 = {"want", "to"};
-        String[] b3 = {"i", "want", "to", "drink", "water"};
 
-        System.out.println(solution.solution(a1, a2, a3));
-        System.out.println(solution.solution(b1, b2, b3));
 
     }
 }
 // 문제 링크
-// https://school.programmers.co.kr/learn/courses/30/lessons/159994
+// https://school.programmers.co.kr/learn/courses/30/lessons/135808

@@ -1,25 +1,22 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
 class Solution {
 
-    public String solution(String[] cards1, String[] cards2, String[] goal) {
+    public int solution(int k, int m, int[] score) {
         // 전략
-        // 카드 뭉치 cards1 cards2
-        // 원하는 순서의 단어 배열 조합 goal
-        // cards1 과 cards2 의 조합으로 goal 을 만들 수 있다면 Yes 리턴, 안되면 No 리턴
-        String answer = "Yes";
+        // 한 상자에 사과를 m개씩 담기
+        // 담긴 사과중 가장 낮은 점수 기준으로 가격 매겨짐 m * 낮은점수
+        // 사과의 최대 점수 k
+        // 상자 단위로 판매 남은 사과는 폐기
 
-        int cards1Index = 0;
-
-        int cards2Index = 0;
-
-        for (int i = 0; i < goal.length; i++) {
-            if (cards1Index < cards1.length && goal[i].equals(cards1[cards1Index])) {
-                cards1Index++;
-            } else if (cards2Index < cards2.length && goal[i].equals(cards2[cards2Index])) {
-                cards2Index++;
-            } else {
-                answer = "No";
-            }
+        Integer[] tmp = Arrays.stream(score).boxed().toArray(Integer[]::new);
+        Arrays.sort(tmp, Comparator.reverseOrder());
+        int answer = 0;
+        for (int i = 1; i * m - 1 < tmp.length; i++) {
+            answer += tmp[i * m - 1] * m;
         }
+
         return answer;
     }
 }
