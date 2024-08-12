@@ -1,20 +1,46 @@
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.List;
 
 class Solution {
 
-    public int solution(int k, int m, int[] score) {
+    public int[] solution(int[] answers) {
         // 전략
-        // 한 상자에 사과를 m개씩 담기
-        // 담긴 사과중 가장 낮은 점수 기준으로 가격 매겨짐 m * 낮은점수
-        // 사과의 최대 점수 k
-        // 상자 단위로 판매 남은 사과는 폐기
+        // 수포자 하나씩 패턴 배열
+        // 수포자들의 점수 배열
+        // 반복문으로 ansqwers 인덱스와 수포자들 인덱스값 같으면 점수 배열값 증가
+        // 점수 배열 최대 값 찾기
+        // 최고 점수 수포자 담기
+        // 배열로 리턴
 
-        Integer[] tmp = Arrays.stream(score).boxed().toArray(Integer[]::new);
-        Arrays.sort(tmp, Comparator.reverseOrder());
-        int answer = 0;
-        for (int i = 1; i * m - 1 < tmp.length; i++) {
-            answer += tmp[i * m - 1] * m;
+        int[] supoza1 = {1, 2, 3, 4, 5};
+        int[] supoza2 = {2, 1, 2, 3, 2, 4, 2, 5};
+        int[] supoza3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
+        int[] scores = {0, 0, 0};
+
+        for (int i = 0; i < answers.length; i++) {
+            if (answers[i] == supoza1[i % 5]) {
+                scores[0]++;
+            }
+            if (answers[i] == supoza2[i % 8]) {
+                scores[1]++;
+            }
+            if (answers[i] == supoza3[i % 10]) {
+                scores[2]++;
+            }
+        }
+
+        int maxScore = Math.max(scores[0], Math.max(scores[1], scores[2]));
+
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            if (maxScore == scores[i]) {
+                list.add(i + 1);
+            }
+        }
+
+        int[] answer = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            answer[i] = list.get(i);
         }
 
         return answer;
