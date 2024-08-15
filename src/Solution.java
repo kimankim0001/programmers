@@ -1,18 +1,29 @@
 class Solution {
 
-    public int solution(int n, int m, int[] section) {
+    public int solution(int number, int limit, int power) {
         // 전략
-        // 페인트가 칠해진 길이 n
-        // 페인트를 칠하는 롤러의 길이 m
-        // 페인트를 칠해야 하는 1미터 단위 구역 section
-        int answer = 1;
-        int index = section[0];
-        for (int i = 1; i < section.length; i++) {
-            if (index + m - 1 < section[i]) {
-                answer++;
-                index = section[i];
+        // 기사 1~number 기사 번호
+        // 기사 번호 약수 개수 = 기사 공격력
+        // 협약 공격력 limit 넘을경우 협약기관에서 정한 공격력 power
+        // 기사들의 총 공격력 answer
+
+        int answer = 0;
+
+        for (int i = 1; i <= number; i++) {
+            int cnt = 0;
+            for (int j = 1; j * j <= i; j++) {
+                if (j * j == i) {
+                    cnt++;
+                } else if (i % j == 0) {
+                    cnt += 2;
+                }
             }
+            if (cnt > limit) {
+                cnt = power;
+            }
+            answer += cnt;
         }
+
         return answer;
     }
 }
