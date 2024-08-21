@@ -1,11 +1,10 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-
-        Solution solution = new Solution();
-
-        System.out.println(solution.solution("1234"));
+        Scanner sc = new Scanner(System.in);
+        String a = sc.next();
+        System.out.println(a);
     }
 }
-// 문제 링크
-// https://school.programmers.co.kr/learn/courses/30/lessons/12925
