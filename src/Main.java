@@ -1,14 +1,11 @@
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
 
         Solution solution = new Solution();
 
-        System.out.println(Arrays.toString(solution.solution(12345)));
-
+        System.out.println(solution.solution("1234"));
     }
 }
 // 문제 링크
-// https://school.programmers.co.kr/learn/courses/30/lessons/12932
+// https://school.programmers.co.kr/learn/courses/30/lessons/12925
