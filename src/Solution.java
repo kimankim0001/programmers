@@ -1,17 +1,25 @@
-class Solution {
-    public int solution(int[] num_list) {
-        int answer = 0;
-        int n = 1;
+import java.util.Arrays;
 
-        if(num_list.length >= 11){
-            for(int i = 0; i < num_list.length; i++){
-                answer += num_list[i];
+class Solution {
+
+    public int[] solution(int[] numlist, int n) {
+        // 전략
+        // n 을 빼준 절대값을 비교해서 정렬
+        // Math.abs
+        int[] answer = new int[numlist.length];
+        Arrays.sort(numlist);
+        for (int i = 0; i < numlist.length; i++) {
+            for (int j = 0; j < numlist.length; j++) {
+                if (Math.abs(numlist[i] - n) <= Math.abs(numlist[j] - n)) {
+                    int temp = numlist[i];
+                    numlist[i] = numlist[j];
+                    numlist[j] = temp;
+                }
             }
-        } else {
-            for(int i = 0; i < num_list.length; i++){
-                n *= num_list[i];
-                answer = n;
-            }
+        }
+
+        for (int i = 0; i < numlist.length; i++) {
+            answer[i] = numlist[i];
         }
         return answer;
     }
