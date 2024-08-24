@@ -1,13 +1,16 @@
 class Solution {
-    public String solution(String myString) {
-        String answer = "";
+    public int solution(int[] num_list) {
+        int answer = 0;
+        int n = 1;
 
-        for (int i = 0; i < myString.length(); i++) {
-            char ch = myString.charAt(i);
-            if (Character.isUpperCase(ch)) {
-                answer += ch;
-            } else if (Character.isLowerCase(ch)){
-                answer += Character.toUpperCase(ch);
+        if(num_list.length >= 11){
+            for(int i = 0; i < num_list.length; i++){
+                answer += num_list[i];
+            }
+        } else {
+            for(int i = 0; i < num_list.length; i++){
+                n *= num_list[i];
+                answer = n;
             }
         }
         return answer;
