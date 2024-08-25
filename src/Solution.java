@@ -1,26 +1,13 @@
-import java.util.Arrays;
+import java.util.Scanner;
 
-class Solution {
+public class Solution {
 
-    public int[] solution(int[] numlist, int n) {
-        // 전략
-        // n 을 빼준 절대값을 비교해서 정렬
-        // Math.abs
-        int[] answer = new int[numlist.length];
-        Arrays.sort(numlist);
-        for (int i = 0; i < numlist.length; i++) {
-            for (int j = 0; j < numlist.length; j++) {
-                if (Math.abs(numlist[i] - n) <= Math.abs(numlist[j] - n)) {
-                    int temp = numlist[i];
-                    numlist[i] = numlist[j];
-                    numlist[j] = temp;
-                }
-            }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        int n = sc.nextInt();
+        for (int i = 0; i < n; i++) {
+            System.out.print(str);
         }
-
-        for (int i = 0; i < numlist.length; i++) {
-            answer[i] = numlist[i];
-        }
-        return answer;
     }
 }
