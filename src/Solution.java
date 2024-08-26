@@ -1,13 +1,19 @@
-import java.util.Scanner;
+class Solution {
 
-public class Solution {
+    public int[] solution(int[] arr) {
+        // 50 <= n && n % 2 = 0 이면 나누기 2
+        // 50 > n && n % 2 = 1 이면 곱하기 2
+        int[] answer = new int[arr.length];
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String str = sc.next();
-        int n = sc.nextInt();
-        for (int i = 0; i < n; i++) {
-            System.out.print(str);
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0 && arr[i] >= 50) {
+                answer[i] = arr[i] / 2;
+            } else if (arr[i] % 2 == 1 && arr[i] < 50) {
+                answer[i] = arr[i] * 2;
+            } else {
+                answer[i] = arr[i];
+            }
         }
+        return answer;
     }
 }
