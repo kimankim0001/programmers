@@ -1,14 +1,16 @@
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
 
         Solution solution = new Solution();
 
-        String[] a1 = {"abc", "def", "ghi"};
-        String[] a2 = {"abc", "bbc", "cbc"};
+        int[] a1 = {2, 1, 6};
+        int[] a2 = {5, 2, 1, 7, 5};
 
-        System.out.println(solution.solution(a1, "ef"));
-        System.out.println(solution.solution(a2, "c"));
+        System.out.println(Arrays.toString(solution.solution(a1)));
+        System.out.println(Arrays.toString(solution.solution(a2)));
 
     }
 }
