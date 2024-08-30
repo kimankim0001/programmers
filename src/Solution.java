@@ -1,21 +1,12 @@
 class Solution {
 
-    public int[] solution(int n, int[] numlist) {
-        int count = 0;
+    public String solution(String my_string) {
+        String answer = my_string;
 
-        for (int i = 0; i < numlist.length; i++) {
-            if (numlist[i] % n == 0) {
-                count++;
-            }
-        }
-        int[] answer = new int[count];
+        String[] replace = {"a", "e", "i", "o", "u"};
 
-        int index = 0;
-        for (int i = 0; i < numlist.length; i++) {
-            if (numlist[i] % n == 0) {
-                answer[index] = numlist[i];
-                index++;
-            }
+        for (String i : replace) {
+            answer = answer.replaceAll(i, "");
         }
         return answer;
     }
