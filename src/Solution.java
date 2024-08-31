@@ -1,12 +1,12 @@
 class Solution {
 
-    public String solution(String my_string) {
-        String answer = my_string;
+    public int solution(String[] order) {
+        int answer = order.length * 4500;
 
-        String[] replace = {"a", "e", "i", "o", "u"};
-
-        for (String i : replace) {
-            answer = answer.replaceAll(i, "");
+        for (int i = 0; i < order.length; i++) {
+            if (order[i].contains("cafelatte")) {
+                answer += 500;
+            }
         }
         return answer;
     }
