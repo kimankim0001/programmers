@@ -1,12 +1,11 @@
 class Solution {
 
-    public int solution(String[] order) {
-        int answer = order.length * 4500;
-
-        for (int i = 0; i < order.length; i++) {
-            if (order[i].contains("cafelatte")) {
-                answer += 500;
-            }
+    public int solution(int n) {
+        int answer = 0;
+        if (n % 7 != 0) {
+            answer = n / 7 + 1;
+        } else {
+            answer = n / 7;
         }
         return answer;
     }

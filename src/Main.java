@@ -4,11 +4,9 @@ public class Main {
 
         Solution solution = new Solution();
 
-        String[] a1 = {"cafelatte", "americanoice", "hotcafelatte", "anything"};
-        String[] a2 = {"americanoice", "americano", "iceamericano"};
-
-        System.out.println(solution.solution(a1));
-        System.out.println(solution.solution(a2));
+        System.out.println(solution.solution(7));
+        System.out.println(solution.solution(1));
+        System.out.println(solution.solution(15));
 
     }
 }
