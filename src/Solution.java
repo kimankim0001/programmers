@@ -1,12 +1,14 @@
 class Solution {
 
-    public int solution(int n) {
+    public int solution(int[] common) {
         int answer = 0;
-        if (n % 7 != 0) {
-            answer = n / 7 + 1;
+
+        if (common[1] - common[0] == common[2] - common[1]) {
+            answer = common[common.length - 1] + (common[1] - common[0]);
         } else {
-            answer = n / 7;
+            answer = common[common.length - 1] * (common[1] / common[0]);
         }
+
         return answer;
     }
 }
