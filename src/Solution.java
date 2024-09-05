@@ -1,10 +1,24 @@
 class Solution {
 
-    public int solution(int[] array, int n) {
+    public int solution(int n) {
         int answer = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == n) {
-                answer++;
+        if (n % 2 == 1) {
+            while (n > 0) {
+                if (n % 2 == 1) {
+                    answer += n;
+                    n--;
+                } else {
+                    n--;
+                }
+            }
+        } else if (n % 2 == 0) {
+            while (n > 0) {
+                if (n % 2 == 0) {
+                    answer += n * n;
+                    n--;
+                } else {
+                    n--;
+                }
             }
         }
         return answer;

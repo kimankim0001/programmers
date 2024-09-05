@@ -4,10 +4,7 @@ public class Main {
 
         Solution s = new Solution();
 
-        int[] a1 = {1, 1, 2, 3, 4, 5};
-        int[] a2 = {0, 2, 3, 4};
-
-        System.out.println(s.solution(a1, 1));
-        System.out.println(s.solution(a2, 1));
+        System.out.println(s.solution(7));
+        System.out.println(s.solution(10));
     }
 }
