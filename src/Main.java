@@ -4,7 +4,7 @@ public class Main {
 
         Solution s = new Solution();
 
-        System.out.println(s.solution(7));
-        System.out.println(s.solution(10));
+        System.out.println(s.solution("10", "11"));
+        System.out.println(s.solution("1001", "1111"));
     }
 }
