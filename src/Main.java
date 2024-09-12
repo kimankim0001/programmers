@@ -1,12 +1,10 @@
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
 
         Solution solution = new Solution();
 
-        System.out.println(Arrays.deepToString(solution.solution(4)));
-        System.out.println(Arrays.deepToString(solution.solution(5)));
+        System.out.println(solution.solution("2"));
+        System.out.println(solution.solution("205"));
     }
 }
