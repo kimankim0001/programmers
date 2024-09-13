@@ -1,17 +1,17 @@
-class Solution {
+import java.util.Stack;
 
-    public String solution(String rsp) {
-        String answer = "";
-        String[] arr = rsp.split("");
+public class Solution {
 
+    public int[] solution(int[] arr) {
+        Stack<Integer> st = new Stack();
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i].equals("2")) {
-                answer += "0";
-            } else if (arr[i].equals("0")) {
-                answer += "5";
-            } else {
-                answer += "2";
+            if (st.empty() || st.peek() != arr[i]) {
+                st.push(arr[i]);
             }
+        }
+        int[] answer = new int[st.size()];
+        for (int i = st.size() - 1; i >= 0; i--) {
+            answer[i] = st.pop();
         }
         return answer;
     }
