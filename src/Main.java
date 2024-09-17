@@ -6,8 +6,7 @@ public class Main {
 
         Solution solution = new Solution();
 
-        System.out.println(Arrays.deepToString(solution.solution(3)));
-        System.out.println(Arrays.deepToString(solution.solution(6)));
-        System.out.println(Arrays.deepToString(solution.solution(1)));
+        System.out.println(Arrays.toString(solution.solution(" i    love  you")));
+        System.out.println(Arrays.toString(solution.solution("    programmers  ")));
     }
 }
