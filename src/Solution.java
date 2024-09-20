@@ -1,13 +1,8 @@
 class Solution {
 
-    public int solution(String myString, String pat) {
-        int answer = 0;
-        for (int i = myString.length() - 1; i >= 0; i--) {
-            String subStr = myString.substring(0, i + 1);
-            if (subStr.endsWith(pat)) {
-                answer++;
-            }
-        }
+    public String solution(String my_string, int n) {
+        String answer = "";
+        answer = my_string.substring(my_string.length() - n);
         return answer;
     }
 }
