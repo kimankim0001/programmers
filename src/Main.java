@@ -4,7 +4,10 @@ public class Main {
 
         Solution solution = new Solution();
 
-        System.out.println(solution.solution("ProgrammerS123", 11));
-        System.out.println(solution.solution("He110W0r1d", 5));
+        int[] a = {1, 3, 2, 5, 4};
+        int[] b = {2, 2, 3, 3};
+
+        System.out.println(solution.solution(a, 9));
+        System.out.println(solution.solution(b, 10));
     }
 }
