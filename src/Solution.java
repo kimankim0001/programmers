@@ -1,12 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Solution {
 
-    public int solution(int num, int n) {
-        int answer = 0;
-        if (num % n == 0) {
-            answer = 1;
-        } else {
-            answer = 0;
+    public String[] solution(String my_str, int n) {
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < my_str.length(); i += n) {
+            list.add(my_str.substring(i, Math.min(i + n, my_str.length())));
         }
-        return answer;
+        return list.toArray(new String[list.size()]);
     }
 }
