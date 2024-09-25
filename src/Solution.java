@@ -1,13 +1,10 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Solution {
 
-    public String[] solution(String my_str, int n) {
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < my_str.length(); i += n) {
-            list.add(my_str.substring(i, Math.min(i + n, my_str.length())));
-        }
-        return list.toArray(new String[list.size()]);
+    public int solution(int[] box, int n) {
+        int a = box[0] / n;
+        int b = box[1] / n;
+        int c = box[2] / n;
+        int answer = a * b * c;
+        return answer;
     }
 }
