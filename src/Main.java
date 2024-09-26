@@ -4,7 +4,6 @@ public class Main {
 
         Solution solution = new Solution();
 
-        System.out.println(solution.solution("programmers","p"));
-        System.out.println(solution.solution("lowercase","x"));
+        System.out.println(solution.solution(new int[]{1, 2, 3, 100, 99, 98}));
     }
 }
