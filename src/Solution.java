@@ -1,10 +1,8 @@
 class Solution {
 
-    public int solution(int[] box, int n) {
-        int a = box[0] / n;
-        int b = box[1] / n;
-        int c = box[2] / n;
-        int answer = a * b * c;
+    public String solution(String my_string, String alp) {
+        String answer = my_string.replace(alp, alp.toUpperCase());
+
         return answer;
     }
 }
