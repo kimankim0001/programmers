@@ -4,6 +4,6 @@ public class Main {
 
         Solution solution = new Solution();
 
-        System.out.println(solution.solution(new int[]{1, 2, 3, 100, 99, 98}));
+        System.out.println(solution.solution(new String[] { "a", "b", "c" }));
     }
 }
