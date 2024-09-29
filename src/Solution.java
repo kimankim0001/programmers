@@ -1,9 +1,13 @@
 class Solution {
 
-    public String solution(String[] arr) {
-        String answer = "";
-        for (int i = 0; i < arr.length; i++) {
-            answer += arr[i];
+    public int solution(int[] numbers, int n) {
+        int answer = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            if (answer > n) {
+                break;
+            } else {
+                answer += numbers[i];
+            }
         }
         return answer;
     }
