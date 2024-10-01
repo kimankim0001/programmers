@@ -1,9 +1,14 @@
 class Solution {
 
-    public int[] solution(int[] num_list) {
-        int[] answer = new int[num_list.length];
-        for (int i = 0; i < num_list.length; i++) {
-            answer[i] = num_list[num_list.length - i - 1];
+    public String[] solution(String[] strArr) {
+        String[] answer = new String[strArr.length];
+
+        for (int i = 0; i < strArr.length; i++) {
+            if (i % 2 == 0) {
+                answer[i] = strArr[i].toLowerCase();
+            } else {
+                answer[i] = strArr[i].toUpperCase();
+            }
         }
         return answer;
     }
