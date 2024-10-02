@@ -1,16 +1,15 @@
 class Solution {
 
-    public int[] solution(String[] name, int[] yearning, String[][] photo) {
-        int[] answer = new int[photo.length];
-        for (int i = 0; i < answer.length; i++) {
-            for (int j = 0; j < photo[i].length; j++) {
-                for (int k = 0; k < name.length; k++) {
-                    if (photo[i][j].equals(name[k])) {
-                        answer[i] += yearning[k];
-                    }
-                }
-            }
+    public int solution(int[] date1, int[] date2) {
+        if (date1[0] != date2[0]) {
+            return date1[0] < date2[0] ? 1 : 0;
         }
-        return answer;
+        if (date1[1] != date2[1]) {
+            return date1[1] < date2[1] ? 1 : 0;
+        }
+        if (date1[2] != date2[2]) {
+            return date1[2] < date2[2] ? 1 : 0;
+        }
+        return 0;
     }
 }
