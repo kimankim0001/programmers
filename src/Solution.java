@@ -1,15 +1,8 @@
 class Solution {
 
-    public int solution(String s) {
-        String[] sArray = s.split(" ");
-        int result = 0;
-        for (int i = 0; i < sArray.length; i++) {
-            if (sArray[i].equals("Z")) {
-                result -= Integer.parseInt(sArray[i - 1]);
-                continue;
-            }
-            result += Integer.parseInt(sArray[i]);
-        }
-        return result;
+    public String solution(String my_string, int s, int e) {
+        StringBuilder answer = new StringBuilder(my_string.substring(s, e + 1));
+        answer.reverse();
+        return my_string.substring(0, s) + answer + my_string.substring(e + 1);
     }
 }
