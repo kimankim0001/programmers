@@ -1,14 +1,19 @@
 class Solution {
 
-    public String solution(int q, int r, String code) {
-        StringBuilder answer = new StringBuilder();
+    boolean solution(String s) {
+        int pCount = 0, yCount = 0;
+        String[] array = s.toLowerCase().split("");
 
-        for (int i = 0; i < code.length(); i++) {
-            if (i % q == r) {
-                answer.append(code.charAt(i));
+        for (int i = 0; i < array.length; i++) {
+            if ("p".equals(array[i])) {
+                pCount++;
+            } else if ("y".equals(array[i])) {
+                yCount++;
             }
         }
-
-        return answer.toString();
+        if (pCount != yCount) {
+            return false;
+        }
+        return true;
     }
 }
