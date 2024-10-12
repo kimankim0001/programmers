@@ -1,22 +1,16 @@
-import java.util.HashSet;
-
 class Solution {
 
-    public int solution(int[] nums) {
-        int answer = 0;
-        int len = nums.length / 2;
-        HashSet<Integer> set = new HashSet<>();
+    public int[] solution(int[] arr, int n) {
+        int[] answer = new int[arr.length];
 
-        for (int num : nums) {
-            set.add(num);
-        }
-
-        int size = set.size();
-
-        if (size >= len) {
-            answer = len;
-        } else {
-            answer = size;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr.length % 2 == 1 && i % 2 == 0) {
+                answer[i] = arr[i] + n;
+            } else if (arr.length % 2 == 0 && i % 2 == 1) {
+                answer[i] = arr[i] + n;
+            } else {
+                answer[i] = arr[i];
+            }
         }
 
         return answer;
