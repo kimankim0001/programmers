@@ -1,15 +1,13 @@
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
 
         Solution solution = new Solution();
 
-        int[] a1 = {49, 12, 100, 276, 33};
-        int[] a2 = {444, 555, 666, 777};
+        int[] a1 = {1, 2, 3, 4, 5};
+        int[] a2 = {15, 98, 23, 2, 15};
 
-        System.out.println(Arrays.toString(solution.solution(a1, 27)));
-        System.out.println(Arrays.toString(solution.solution(a2, 100)));
+        System.out.println(solution.solution(a1, 3));
+        System.out.println(solution.solution(a2, 20));
     }
 }
