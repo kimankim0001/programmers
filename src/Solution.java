@@ -1,12 +1,16 @@
 class Solution {
 
-    public int[] solution(int[] num_list, int n) {
-        int[] answer = new int[(num_list.length) - (n - 1)];
-
-        for (int i = 0; i < answer.length; i++) {
-            answer[i] = num_list[(n - 1) + i];
+    public int solution(int[] num_list) {
+        int answer = 0;
+        int sum = 0;
+        int mul = 1;
+        for (int i = 0; i < num_list.length; i++) {
+            sum += num_list[i];
+            mul *= num_list[i];
         }
-
+        if (sum * sum > mul) {
+            answer = 1;
+        }
         return answer;
     }
 }
