@@ -1,15 +1,22 @@
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
 
-    public int solution(int[] num_list) {
-        int answer = 0;
-        int sum = 0;
-        int mul = 1;
-        for (int i = 0; i < num_list.length; i++) {
-            sum += num_list[i];
-            mul *= num_list[i];
+    public int solution(int[][] lines) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < lines.length; i++) {
+            for (int j = lines[i][0]; j < lines[i][1]; j++) {
+                map.put(j, map.getOrDefault(j, 0) + 1);
+            }
         }
-        if (sum * sum > mul) {
-            answer = 1;
+
+        int answer = 0;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            if (entry.getValue() > 1) {
+                answer++;
+            }
         }
         return answer;
     }
