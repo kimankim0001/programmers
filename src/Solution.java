@@ -1,23 +1,20 @@
-import java.util.HashMap;
-import java.util.Map;
-
 class Solution {
 
-    public int solution(int[][] lines) {
-        Map<Integer, Integer> map = new HashMap<>();
+    public int solution(String[][] board, int h, int w) {
+        int n = board.length;
+        int count = 0;
+        int[] dh = {0, 1, -1, 0};
+        int[] dw = {1, 0, 0, -1};
+        for (int i = 0; i < 4; i++) {
+            int h_check = h + dh[i];
+            int w_check = w + dw[i];
 
-        for (int i = 0; i < lines.length; i++) {
-            for (int j = lines[i][0]; j < lines[i][1]; j++) {
-                map.put(j, map.getOrDefault(j, 0) + 1);
+            if (h_check >= 0 && h_check < n && w_check >= 0 && w_check < n) {
+                if (board[h][w].equals(board[h_check][w_check])) {
+                    count++;
+                }
             }
         }
-
-        int answer = 0;
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (entry.getValue() > 1) {
-                answer++;
-            }
-        }
-        return answer;
+        return count;
     }
 }

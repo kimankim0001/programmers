@@ -4,12 +4,11 @@ public class Main {
 
         Solution solution = new Solution();
 
-        int[][] a1 = {{0, 1}, {2, 5}, {3, 9}};
-        int[][] a2 = {{-1, 1}, {1, 3}, {3, 9}};
-        int[][] a3 = {{0, 5}, {3, 9}, {1, 10}};
+        String[][] a1 = {{"blue", "red", "orange", "red"}, {"red", "red", "blue", "orange"}, {"blue", "orange", "red", "red"},
+            {"orange", "orange", "red", "blue"}};
+        String[][] a2 = {{"yellow", "green", "blue"}, {"blue", "green", "yellow"}, {"yellow", "blue", "blue"}};
 
-        System.out.println(solution.solution(a1));
-        System.out.println(solution.solution(a2));
-        System.out.println(solution.solution(a3));
+        System.out.println(solution.solution(a1, 1, 1));
+        System.out.println(solution.solution(a2, 0, 1));
     }
 }
