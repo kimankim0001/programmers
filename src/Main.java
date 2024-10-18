@@ -1,14 +1,18 @@
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
 
         Solution solution = new Solution();
 
-        String[][] a1 = {{"blue", "red", "orange", "red"}, {"red", "red", "blue", "orange"}, {"blue", "orange", "red", "red"},
-            {"orange", "orange", "red", "blue"}};
-        String[][] a2 = {{"yellow", "green", "blue"}, {"blue", "green", "yellow"}, {"yellow", "blue", "blue"}};
+        int[] s1 = {1, 5, 2};
+        int[] s2 = {1, 5, 2};
 
-        System.out.println(solution.solution(a1, 1, 1));
-        System.out.println(solution.solution(a2, 0, 1));
+        int[] n1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] n2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+        System.out.println(Arrays.toString(solution.solution(3, s1, n1)));
+        System.out.println(Arrays.toString(solution.solution(4, s2, n2)));
     }
 }

@@ -1,20 +1,32 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Solution {
 
-    public int solution(String[][] board, int h, int w) {
-        int n = board.length;
-        int count = 0;
-        int[] dh = {0, 1, -1, 0};
-        int[] dw = {1, 0, 0, -1};
-        for (int i = 0; i < 4; i++) {
-            int h_check = h + dh[i];
-            int w_check = w + dw[i];
+    public int[] solution(int n, int[] slicer, int[] num_list) {
+        List<Integer> list = new ArrayList<>();
+        int a = slicer[0];
+        int b = slicer[1];
+        int c = slicer[2];
+        if (n == 1) {
+            for (int i = 0; i < b + 1; i++) {
+                list.add(num_list[i]);
+            }
+        } else if (n == 2) {
+            for (int i = a; i < num_list.length; i++) {
+                list.add(num_list[i]);
+            }
+        } else if (n == 3) {
+            for (int i = a; i < b + 1; i++) {
+                list.add(num_list[i]);
+            }
+        } else if (n == 4) {
+            for (int i = a; i < b + 1; i += c) {
+                list.add(num_list[i]);
 
-            if (h_check >= 0 && h_check < n && w_check >= 0 && w_check < n) {
-                if (board[h][w].equals(board[h_check][w_check])) {
-                    count++;
-                }
             }
         }
-        return count;
+        int[] answer = list.stream().mapToInt(x -> x).toArray();
+        return answer;
     }
 }
