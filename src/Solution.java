@@ -1,9 +1,20 @@
 class Solution {
 
-    public String solution(String my_string, String letter) {
-        String answer = "";
+    public int solution(String[] spell, String[] dic) {
+        int answer = 2;
+        int index = 0;
 
-        answer = my_string.replace(letter, "");
+        for (int i = 0; i < dic.length; i++) {
+            index = 0;
+            for (int j = 0; j < spell.length; j++) {
+                if (dic[i].contains(spell[j])) {
+                    index++;
+                }
+                if (index == spell.length) {
+                    answer = 1;
+                }
+            }
+        }
 
         return answer;
     }
