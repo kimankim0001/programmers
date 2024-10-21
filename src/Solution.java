@@ -1,21 +1,18 @@
+import java.util.Arrays;
+
 class Solution {
 
-    public int solution(String[] spell, String[] dic) {
-        int answer = 2;
-        int index = 0;
-
-        for (int i = 0; i < dic.length; i++) {
-            index = 0;
-            for (int j = 0; j < spell.length; j++) {
-                if (dic[i].contains(spell[j])) {
-                    index++;
-                }
-                if (index == spell.length) {
-                    answer = 1;
+    public int[] solution(int[] emergency) {
+        int[] asc = emergency.clone();
+        int[] answer = new int[emergency.length];
+        Arrays.sort(asc);
+        for (int i = 0; i < asc.length; i++) {
+            for (int j = 0; j < emergency.length; j++) {
+                if (asc[i] == emergency[j]) {
+                    answer[j] = emergency.length - i;
                 }
             }
         }
-
         return answer;
     }
 }

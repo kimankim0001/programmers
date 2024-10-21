@@ -1,19 +1,17 @@
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
 
         Solution solution = new Solution();
 
-        String[] s1 = {"p", "o", "s"};
-        String[] s2 = {"z", "d", "x"};
-        String[] s3 = {"s", "o", "m", "d"};
+        int[] e1 = {3, 76, 24};
+        int[] e2 = {1, 2, 3, 4, 5, 6, 7};
+        int[] e3 = {30, 10, 23, 6, 100};
 
-        String[] d1 = {"sod", "eocd", "qixm", "adio", "soo"};
-        String[] d2 = {"def", "dww", "dzx", "loveaw"};
-        String[] d3 = {"moos", "dzx", "smm", "sunmmo", "som"};
-
-        System.out.println(solution.solution(s1, d1));
-        System.out.println(solution.solution(s2, d2));
-        System.out.println(solution.solution(s3, d3));
+        System.out.println(Arrays.toString(solution.solution(e1)));
+        System.out.println(Arrays.toString(solution.solution(e2)));
+        System.out.println(Arrays.toString(solution.solution(e3)));
     }
 }
