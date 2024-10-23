@@ -1,18 +1,15 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 class Solution {
 
-    public int[] solution(String[] intStrs, int k, int s, int l) {
-        List<Integer> result = new ArrayList<>();
+    public int[] solution(int[] num_list) {
+        int[] answer = new int[5];
+        Arrays.sort(num_list);
 
-        for (String str : intStrs) {
-            int i = Integer.parseInt(str.substring(s, s + l));
-            if (i > k) {
-                result.add(i);
-            }
+        for (int i = 0; i < 5; i++) {
+            answer[i] = num_list[i];
         }
 
-        return result.stream().mapToInt(i -> i).toArray();
+        return answer;
     }
 }
