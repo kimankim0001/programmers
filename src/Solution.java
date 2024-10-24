@@ -1,15 +1,13 @@
-import java.util.Arrays;
-
 class Solution {
 
-    public int[] solution(int[] num_list) {
-        int[] answer = new int[5];
-        Arrays.sort(num_list);
-
-        for (int i = 0; i < 5; i++) {
-            answer[i] = num_list[i];
+    public int solution(String number) {
+        int answer = 0;
+        int sum = 0;
+        String[] number_list = number.split("");
+        for (int i = 0; i < number_list.length; i++) {
+            sum += Integer.parseInt(number_list[i]);
         }
-
+        answer = sum % 9;
         return answer;
     }
 }
