@@ -1,30 +1,19 @@
-import java.util.ArrayList;
-
 class Solution {
 
-    public int[] solution(int l, int r) {
-        int[] answer = {};
-        ArrayList<Integer> list = new ArrayList<>();
-        int a = 0;
-        for (int i = l; i <= r; i++) {
-            String num = String.valueOf(i);
-            String[] nums = num.split("");
-            int numLength = nums.length;
-            int count = 0;
-            for (int j = 0; j < numLength; j++) {
-                if (nums[j].equals("0") || nums[j].equals("5")) {
-                    count++;
-                }
-            }
-            if (count == numLength) {
-                list.add(i);
+    public int[] solution(int[] num_list) {
+        int[] answer = new int[2];
+        int left = 0;
+        int right = 0;
+
+        for (int i = 0; i < num_list.length; i++) {
+            if (num_list[i] % 2 == 0) {
+                left++;
+            } else {
+                right++;
             }
         }
-        answer = list.stream().mapToInt(Integer::intValue).toArray();
-        if (answer.length == 0) {
-            answer = new int[]{-1};
-            return answer;
-        }
+        answer[0] = left;
+        answer[1] = right;
         return answer;
     }
 }
