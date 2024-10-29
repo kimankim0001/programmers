@@ -1,35 +1,30 @@
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
 
 class Solution {
 
-    public int[] solution(int N, int[] stages) {
-        HashMap<Integer, Double> map = new HashMap<>();
-        int[] userFailCnts = new int[N + 2];
-        int[] userTotalCnts = new int[N + 1];
-
-        for (int stage : stages) {
-            userFailCnts[stage]++;
-        }
-
-        userTotalCnts[N] = userFailCnts[N] + userFailCnts[N + 1];
-        for (int i = N - 1; i >= 1; i--) {
-            userTotalCnts[i] = userFailCnts[i] + userTotalCnts[i + 1];
-        }
-
-        for (int i = 1; i < userTotalCnts.length; i++) {
-            if (userFailCnts[i] == 0 || userTotalCnts[i] == 0) {
-                map.put(i, 0.0);
-            } else {
-                map.put(i, (double) userFailCnts[i] / userTotalCnts[i]);
+    public int[] solution(int l, int r) {
+        int[] answer = {};
+        ArrayList<Integer> list = new ArrayList<>();
+        int a = 0;
+        for (int i = l; i <= r; i++) {
+            String num = String.valueOf(i);
+            String[] nums = num.split("");
+            int numLength = nums.length;
+            int count = 0;
+            for (int j = 0; j < numLength; j++) {
+                if (nums[j].equals("0") || nums[j].equals("5")) {
+                    count++;
+                }
+            }
+            if (count == numLength) {
+                list.add(i);
             }
         }
-
-        List<Integer> list = new ArrayList<>(map.keySet());
-        Collections.sort(list, (o1, o2) -> Double.compare(map.get(o2), map.get(o1)));
-
-        return list.stream().mapToInt(Integer::intValue).toArray();
+        answer = list.stream().mapToInt(Integer::intValue).toArray();
+        if (answer.length == 0) {
+            answer = new int[]{-1};
+            return answer;
+        }
+        return answer;
     }
 }
