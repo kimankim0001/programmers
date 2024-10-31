@@ -1,15 +1,15 @@
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
 
         Solution solution = new Solution();
 
-        int[] n1 = {1, 2, 3, 4, 5};
-        int[] n2 = {1, 3, 5, 7};
-
-        System.out.println(Arrays.toString(solution.solution(n1)));
-        System.out.println(Arrays.toString(solution.solution(n2)));
+        System.out.println(solution.solution("1S2D*3T"));
+        System.out.println(solution.solution("1D2S#10S"));
+        System.out.println(solution.solution("1D2S0T"));
+        System.out.println(solution.solution("1S*2T*3S"));
+        System.out.println(solution.solution("1D#2S*3S"));
+        System.out.println(solution.solution("1T2D3D#"));
+        System.out.println(solution.solution("1D2S3T*"));
     }
 }
