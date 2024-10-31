@@ -1,44 +1,14 @@
 class Solution {
 
-    public int solution(String dartResult) {
+    public int solution(int order) {
         int answer = 0;
-        int[] dart = new int[3];
-
-        int n = 0, idx = 0;
-        String numstr = "";
-
-        for (int i = 0; i < dartResult.length(); i++) {
-            char c = dartResult.charAt(i);
-
-            if (c >= '0' && c <= '9') {
-                numstr += String.valueOf(c);
-
-            }
-            else if (c == 'S' || c == 'D' || c == 'T') {
-                n = Integer.parseInt(numstr);
-                if (c == 'S') {
-                    dart[idx++] = (int) Math.pow(n, 1);
-                } else if (c == 'D') {
-                    dart[idx++] = (int) Math.pow(n, 2);
-                } else {
-                    dart[idx++] = (int) Math.pow(n, 3);
-                }
-                numstr = "";
-            }
-            else {
-                if (c == '*') {
-                    dart[idx - 1] *= 2;
-                    if (idx - 2 >= 0) {
-                        dart[idx - 2] *= 2;
-                    }
-                } else {
-                    dart[idx - 1] *= (-1);
-                }
+        String order_s = Integer.toString(order);
+        String[] arr = order_s.split("");
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].equals("3") || arr[i].equals("6") || arr[i].equals("9")) {
+                answer++;
             }
         }
-
-        answer = dart[0] + dart[1] + dart[2];
-
         return answer;
     }
 }
