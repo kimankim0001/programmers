@@ -1,9 +1,15 @@
 class Solution {
 
-    public int solution(String str1, String str2) {
-        int answer = 0;
-        if (str2.contains(str1)) {
-            answer = 1;
+    public int[] solution(int n) {
+        int[] answer;
+        if (n % 2 == 0) {
+            answer = new int[n / 2];
+        } else {
+            answer = new int[(n + 1) / 2];
+        }
+
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = (i * 2) + 1;
         }
         return answer;
     }
