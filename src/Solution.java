@@ -1,13 +1,21 @@
 class Solution {
 
-    public int[] solution(int[] array) {
-        int[] answer = {0, 0};
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > answer[0]) {
-                answer[0] = array[i];
-                answer[1] = i;
+    public String solution(String letter) {
+        String[] morse = {".-", "-...", "-.-.", "-..", ".", "..-.",
+            "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.",
+            "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-",
+            ".--", "-..-", "-.--", "--.."};
+        String[] morseString;
+        morseString = letter.split(" ");
+
+        StringBuilder sb = new StringBuilder();
+        for (String word : morseString) {
+            for (int i = 0; i < morse.length; i++) {
+                if (word.equals(morse[i])) {
+                    sb.append(Character.toString(i + 'a'));
+                }
             }
         }
-        return answer;
+        return sb.toString();
     }
 }
