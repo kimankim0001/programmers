@@ -4,7 +4,13 @@ public class Main {
 
         Solution solution = new Solution();
 
-        System.out.println(solution.solution(".... . .-.. .-.. ---"));
-        System.out.println(solution.solution(".--. -.-- - .... --- -."));
+        int[][] b1 = {{0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
+        int[][] b2 = {{0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 1, 1, 0}, {0, 0, 0, 0, 0}};
+        int[][] b3 = {{1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1},
+            {1, 1, 1, 1, 1, 1}};
+
+        System.out.println(solution.solution(b1));
+        System.out.println(solution.solution(b2));
+        System.out.println(solution.solution(b3));
     }
 }
