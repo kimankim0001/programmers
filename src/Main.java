@@ -4,7 +4,10 @@ public class Main {
 
         Solution solution = new Solution();
 
-        System.out.println(solution.solution("happy birthday!"));
-        System.out.println(solution.solution("I love you~"));
+        int[][] a1 = {{1, 1}, {2, 1}, {2, 2}, {1, 2}};
+        int[][] a2 = {{-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
+
+        System.out.println(solution.solution(a1));
+        System.out.println(solution.solution(a2));
     }
 }
