@@ -1,18 +1,14 @@
 class Solution {
 
-    public int solution(int[][] dots) {
-        int w = 0;
-        int h = 0;
-        int x = dots[0][0];
-        int y = dots[0][1];
-        for (int i = 1; i < dots.length; i++) {
-            if (x != dots[i][0]) {
-                w = Math.abs(x - dots[i][0]);
-            }
-            if (y != dots[i][1]) {
-                h = Math.abs(y - dots[i][1]);
-            }
+    public int solution(int a, int b) {
+        int answer = 0;
+        if (a % 2 == 1 && b % 2 == 1) {
+            answer = a * a + b * b;
+        } else if (a % 2 == 1 || b % 2 == 1) {
+            answer = 2 * (a + b);
+        } else {
+            answer = Math.abs(a - b);
         }
-        return w * h;
+        return answer;
     }
 }
