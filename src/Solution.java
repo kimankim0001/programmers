@@ -1,14 +1,15 @@
 class Solution {
 
-    public int solution(int a, int b) {
-        int answer = 0;
-        if (a % 2 == 1 && b % 2 == 1) {
-            answer = a * a + b * b;
-        } else if (a % 2 == 1 || b % 2 == 1) {
-            answer = 2 * (a + b);
-        } else {
-            answer = Math.abs(a - b);
+    public int solution(int[][] arr) {
+        int n = arr.length;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (arr[i][j] != arr[j][i]) {
+                    return 0;
+                }
+            }
         }
-        return answer;
+        return 1;
     }
 }
