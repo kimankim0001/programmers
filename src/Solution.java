@@ -1,17 +1,12 @@
 class Solution {
 
-    public int[] solution(int[] num_list, int n) {
-        int[] answer;
-        if (num_list.length % n == 0) {
-            answer = new int[num_list.length / n];
-        } else {
-            answer = new int[num_list.length / n + 1];
+    public String solution(String my_string, int[] index_list) {
+        String answer = "";
+
+        for (int i = 0; i < index_list.length; i++) {
+            answer += my_string.charAt(index_list[i]);
         }
 
-        int index = 0;
-        for (int i = 0; i < num_list.length; i += n) {
-            answer[index++] = num_list[i];
-        }
         return answer;
     }
 }
