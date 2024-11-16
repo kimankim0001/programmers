@@ -1,9 +1,12 @@
 class Solution {
 
-    public int solution(String my_string, String target) {
-        int answer = 0;
-        if (my_string.contains(target)) {
-            answer = 1;
+    public int solution(int[] num_list) {
+        int answer = -1;
+        for (int i = 0; i < num_list.length; i++) {
+            if (num_list[i] < 0) {
+                answer = i;
+                break;
+            }
         }
         return answer;
     }
