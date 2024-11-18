@@ -1,22 +1,15 @@
-import java.util.ArrayList;
-
 class Solution {
 
-    public int[] solution(int n) {
-        ArrayList<Integer> tmpList = new ArrayList<>();
-
-        for (int i = 2; i <= n; i++) {
-            if (n % i == 0) {
-                while (n % i == 0) {
-                    n /= i;
-                }
-                tmpList.add(i);
+    public String solution(String code) {
+        String answer = "";
+        int mode = 0;
+        for (int i = 0; i < code.length(); i++) {
+            if (code.charAt(i) == '1') {
+                mode = 1 - mode;
+            } else if (i % 2 == mode) {
+                answer += code.charAt(i);
             }
         }
-        int[] answer = new int[tmpList.size()];
-        for (int i = 0; i < answer.length; i++) {
-            answer[i] = tmpList.get(i);
-        }
-        return answer;
+        return "".equals(answer) ? "EMPTY" : answer;
     }
 }
