@@ -1,9 +1,13 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        Solution solution = new Solution();
-
-        System.out.println(solution.solution("abc1abc1abc"));
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = a + b;
+        System.out.println(a + " + " + b + " = " + c);
     }
 }
