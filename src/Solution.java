@@ -1,15 +1,12 @@
 class Solution {
 
-    public String solution(String code) {
+    public String solution(String my_string) {
         String answer = "";
-        int mode = 0;
-        for (int i = 0; i < code.length(); i++) {
-            if (code.charAt(i) == '1') {
-                mode = 1 - mode;
-            } else if (i % 2 == mode) {
-                answer += code.charAt(i);
+        for (int i = 0; i < my_string.length(); i++) {
+            if (!answer.contains(String.valueOf(my_string.charAt(i)))) {
+                answer += my_string.charAt(i);
             }
         }
-        return "".equals(answer) ? "EMPTY" : answer;
+        return answer;
     }
 }
