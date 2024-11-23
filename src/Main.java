@@ -1,19 +1,11 @@
-import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int year = sc.nextInt();
-        String age_type = sc.next();
-        int answer = 0;
+        Solution solution = new Solution();
 
-        if (age_type.equals("Korea")) {
-            answer = 2030 - year + 1;
-        } else if (age_type.equals("Year")) {
-            answer = 2030 - year;
-        }
-
-        System.out.println(answer);
+        System.out.println(Arrays.toString(solution.solution("axbxcxdx")));
+        System.out.println(Arrays.toString(solution.solution("dxccxbbbxaaaa")));
     }
 }

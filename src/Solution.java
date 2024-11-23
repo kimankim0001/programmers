@@ -1,12 +1,13 @@
+import java.util.Arrays;
+
 class Solution {
 
-    public String solution(String my_string) {
-        String answer = "";
-        for (int i = 0; i < my_string.length(); i++) {
-            if (!answer.contains(String.valueOf(my_string.charAt(i)))) {
-                answer += my_string.charAt(i);
-            }
-        }
+    public String[] solution(String myString) {
+        String[] parts = myString.split("x");
+        String[] answer = Arrays.stream(parts)
+            .filter(str -> !str.isEmpty())
+            .sorted()
+            .toArray(String[]::new);
         return answer;
     }
 }
