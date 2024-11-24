@@ -1,15 +1,20 @@
 class Solution {
 
-    public int solution(int n) {
-        int answer = 0;
+    public String solution(String polynomial) {
+        int xNum = 0;
+        int num = 0;
 
-        for (int i = 1; i <= n; i++) {
-            int count = 0;
-            for (int j = 1; j <= i; j++) {
-                count += (i % j == 0) ? 1 : 0;
+        for (String s : polynomial.split(" ")) {
+            if (s.contains("x"))
+            {
+                xNum += s.equals("x") ? 1 : Integer.parseInt(s.replaceAll("x", ""));
+            } else if (!s.equals("+")) {
+                num += Integer.parseInt(s);
             }
-            answer += (count >= 3) ? 1 : 0;
         }
-        return answer;
+
+        return (xNum != 0 ? xNum > 1 ? xNum + "x" : "x" : "")
+            + (num != 0 ? (xNum != 0 ? " + " : "")
+            + num : xNum == 0 ? "0" : "");
     }
 }
