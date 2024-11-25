@@ -1,20 +1,55 @@
+import java.util.Arrays;
+
 class Solution {
 
-    public String solution(String polynomial) {
-        int xNum = 0;
-        int num = 0;
+    public int solution(int a, int b, int c, int d) {
+        int answer = 0;
+        int[] nums = new int[4];
+        nums[0] = a;
+        nums[1] = b;
+        nums[2] = c;
+        nums[3] = d;
 
-        for (String s : polynomial.split(" ")) {
-            if (s.contains("x"))
-            {
-                xNum += s.equals("x") ? 1 : Integer.parseInt(s.replaceAll("x", ""));
-            } else if (!s.equals("+")) {
-                num += Integer.parseInt(s);
-            }
+        int multi = 1;
+
+        Arrays.sort(nums);
+        int[] dice = new int[6];
+        for (int i = 0; i < 4; i++) {
+            dice[nums[i] - 1]++;
         }
 
-        return (xNum != 0 ? xNum > 1 ? xNum + "x" : "x" : "")
-            + (num != 0 ? (xNum != 0 ? " + " : "")
-            + num : xNum == 0 ? "0" : "");
+        for (int i = 0; i < 6; i++) {
+            if (dice[i] == 4) {
+                answer = 1111 * (i + 1);
+                break;
+            } else if (dice[i] == 3) {
+                for (int j = 0; j < 6; j++) {
+                    if (dice[j] == 1) {
+                        answer = (10 * (i + 1) + (j + 1)) * (10 * (i + 1) + (j + 1));
+                        break;
+                    }
+                }
+            } else if (dice[i] == 2) {
+                for (int j = 0; j < 6; j++) {
+                    if (dice[j] == 2) {
+                        if (i == j) {
+                            continue;
+                        } else {
+                            answer = (i + 1 + j + 1) * ((i + 1) - (j + 1));
+                            break;
+                        }
+                    } else if (dice[j] == 1) {
+                        multi = multi * (j + 1);
+                    }
+                }
+                if (multi != 1) {
+                    answer = multi;
+                }
+            }
+            if (nums[0] != nums[1] && nums[1] != nums[2] && nums[2] != nums[3]) {
+                answer = nums[0];
+            }
+        }
+        return answer;
     }
 }
