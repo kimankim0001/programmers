@@ -6,6 +6,6 @@ public class Main {
 
         Solution s1 = new Solution();
 
-        System.out.println(Arrays.toString(s1.solution(10, 3)));
+        System.out.println(Arrays.toString(s1.solution("Programmers")));
     }
 }
