@@ -1,17 +1,19 @@
+import java.util.Arrays;
+
 class Solution {
 
-    public int[] solution(String my_string) {
-        int[] answer = new int[52];
+    public int[] solution(int[] arr) {
+        int n = arr.length;
+        int targetLength = 1;
 
-        for (int i = 0; i < my_string.length(); i++) {
-            char c = my_string.charAt(i);
-
-            if (c >= 'A' && c <= 'Z') {
-                answer[c - 'A']++;
-            } else if (c >= 'a' && c <= 'z') {
-                answer[26 + c - 'a']++;
-            }
+        while (targetLength < n) {
+            targetLength *= 2;
         }
+
+        int[] answer = new int[targetLength];
+        Arrays.fill(answer, 0);
+
+        System.arraycopy(arr, 0, answer, 0, n);
 
         return answer;
     }
