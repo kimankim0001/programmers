@@ -4,7 +4,7 @@ public class Main {
 
         Solution s1 = new Solution();
 
-        System.out.println(s1.solution(10, 3));
-        System.out.println(s1.solution(64, 6));
+        System.out.println(s1.solution("hello", 1, 2));
+        System.out.println(s1.solution("I love you", 3, 6));
     }
 }
