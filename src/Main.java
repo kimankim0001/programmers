@@ -4,7 +4,9 @@ public class Main {
 
         Solution s1 = new Solution();
 
-        System.out.println(s1.solution(1.42));
-        System.out.println(s1.solution(69.32));
+        int[] i = {1, 16, 6, 15, 0, 10, 11, 3};
+
+        System.out.println(s1.solution("apporoograpemmemprs", i));
+
     }
 }
