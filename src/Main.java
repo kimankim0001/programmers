@@ -4,8 +4,9 @@ public class Main {
 
         Solution s1 = new Solution();
 
-        System.out.println(s1.solution("onetwothreefourfivesixseveneightnine"));
-        System.out.println(s1.solution("onefourzerosixseven"));
+        System.out.println(s1.solution(2, 10));
+        System.out.println(s1.solution(7, 15));
+
 
     }
 }
