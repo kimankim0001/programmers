@@ -4,8 +4,6 @@ public class Main {
 
         Solution s1 = new Solution();
 
-        System.out.println(s1.solution("0010"));
-        System.out.println(s1.solution("854020"));
-
+        System.out.println(s1.solution("3 + 4"));
     }
 }
