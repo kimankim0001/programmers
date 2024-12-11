@@ -1,13 +1,8 @@
 class Solution {
 
-    public int solution(int n, int t) {
-
-        int answer = n;
-
-        for (int i = 0; i < t; i++) {
-
-            answer *= 2;
-        }
+    public String solution(String n_str) {
+        int i = Integer.parseInt(n_str);
+        String answer = i + "";
         return answer;
     }
 }
