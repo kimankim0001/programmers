@@ -1,17 +1,18 @@
+import java.util.Arrays;
+
 class Solution {
 
-    public int solution(String my_string) {
-        String[] arr = my_string.split(" ");
-        int answer = Integer.valueOf(arr[0]);
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i].equals("+")) {
-                answer += Integer.valueOf(arr[i + 1]);
-            } else if (arr[i].equals("-")) {
-                answer -= Integer.valueOf(arr[i + 1]);
-            } else {
-                continue;
-            }
+    public int[] solution(String my_string) {
+        my_string = my_string.replaceAll("[a-z]", "");
+
+        String[] arr = my_string.split("");
+        int[] answer = new int[arr.length];
+
+        for (int i = 0; i < arr.length; i++) {
+            answer[i] = Integer.parseInt(arr[i]);
         }
+        Arrays.sort(answer);
+
         return answer;
     }
 }
