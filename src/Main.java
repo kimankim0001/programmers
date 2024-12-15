@@ -4,7 +4,7 @@ public class Main {
 
         Solution s1 = new Solution();
 
-        System.out.println(s1.solution("dfjardstddetckdaccccdegk", 4));
-        System.out.println(s1.solution("pfqallllabwaoclk", 2));
+        System.out.println(s1.solution("jaron"));
+        System.out.println(s1.solution("bread"));
     }
 }
