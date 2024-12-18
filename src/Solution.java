@@ -1,15 +1,11 @@
 class Solution {
-    public int solution(int a, int b, int c) {
-    	int answer = 0;
-        
-        if(a==b&&b==c){
-            answer = (a+b+c)*(a*a+b*b+c*c)*(a*a*a+b*b*b+c*c*c);
-        }else if(a==b&&b!=c||a==c&&c!=b||a!=b&&b==c){
-            answer = (a+b+c)*(a*a+b*b+c*c);
-        }else{
-            answer = a+b+c;
-        }
-        
-        return answer;
+    public int[] solution(int[] numbers) {
+    	 int[] answer = new int[numbers.length];
+         
+         for(int i = 0; i < answer.length; i++) {
+             answer[i] = numbers[i] * 2;
+         }
+         
+         return answer;
     }
 }
