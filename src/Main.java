@@ -6,11 +6,11 @@ public class Main {
 
         Solution s1 = new Solution();
         
-        int[] n1 = new int[]{1, 2, 3, 4, 5};
-        int[] n2 = new int[]{1, 2, 100, -99, 1, 2, 3};
+        int[] n1 = new int[]{0,1,1,2,2,3};
+        int[] n2 = new int[]{0,1,1,1,1};
 
-        System.out.println(Arrays.toString(s1.solution(n1)));
-        System.out.println(Arrays.toString(s1.solution(n2)));
+        System.out.println(Arrays.toString(s1.solution(n1,3)));
+        System.out.println(Arrays.toString(s1.solution(n2,4)));
         
     }
 }
