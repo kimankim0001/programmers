@@ -6,14 +6,12 @@ public class Main {
 
         Solution s1 = new Solution();
         
-        int[][] arr1 = new int[][] {{572,22,37},{287,726,384},{85,137,292},{487,13,876}};
-        int[][] arr2 = new int[][] {{57,192,534,2},{9,345,192,999}};
-        int[][] arr3 = new int[][] {{1,2},{3,4}};
+        int[] arr1 = new int[]{3,2,4,1,3};
+        boolean[] flag1 = new boolean[]{true, false, true, false, false};
 
 
-        System.out.println(Arrays.deepToString(s1.solution(arr1)));
-        System.out.println(Arrays.deepToString(s1.solution(arr2)));
-        System.out.println(Arrays.deepToString(s1.solution(arr3)));
+        System.out.println(Arrays.toString(s1.solution(arr1,flag1)));
+        
         
     }
 }

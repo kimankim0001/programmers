@@ -1,28 +1,32 @@
-class Solution {
-    public int[][] solution(int[][] arr) {
-    	int row = arr.length;
-        int col = arr[0].length;
+import java.util.ArrayList;
+import java.util.List;
 
-        if (row > col) {
-            int[][] temp = new int[row][row];
-            for (int i = 0; i < row; i++) {
-                for (int j = 0; j < col; j++) {
-                    temp[i][j] = arr[i][j];
+class Solution {
+    public int[] solution(int[] arr, boolean[] flag) {
+        List<Integer> X = new ArrayList<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            if (flag[i]) {
+                int num = arr[i];
+                for (int j = 0; j < num * 2; j++) {
+                    X.add(num);
                 }
-                temp[i][col] = 0;
-            }
-            return temp;
-        } else if (col > row) {
-            int[][] temp = new int[col][col];
-            for (int i = 0; i < col; i++) {
-                for (int j = 0; j < row; j++) {
-                    temp[j][i] = arr[j][i];
+            } else {
+                int num = arr[i];
+                int size = X.size();
+                if (size >= num) {
+                    for (int j = 0; j < num; j++) {
+                        X.remove(size - 1 - j);
+                    }
                 }
-                temp[row][i] = 0;
             }
-            return temp;
-        } else {
-            return arr;
         }
+
+        int[] answer = new int[X.size()];
+        for (int i = 0; i < X.size(); i++) {
+            answer[i] = X.get(i);
+        }
+
+        return answer;
     }
 }
