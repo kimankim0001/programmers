@@ -4,7 +4,8 @@ public class Main {
 
         Solution s1 = new Solution();     
                
-        System.out.println(s1.solution("abstract algebra"));
-        System.out.println(s1.solution("PrOgRaMmErS"));           
+        System.out.println(s1.solution(23));
+        System.out.println(s1.solution(51));
+        System.out.println(s1.solution(100));
     }
 }
