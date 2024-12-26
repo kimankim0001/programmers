@@ -1,12 +1,12 @@
+import java.util.*;
+
 class Solution {
-    public String solution(int age) {
-        String answer = "";
-        String age962 = "abcdefghij";
-        String[] ageArr = String.valueOf(age).split("");
+    public int solution(int[] numbers) {
+        int answer = 0;
         
-        for(int i = 0; i < ageArr.length; i++) {
-            answer += age962.charAt(Integer.valueOf(ageArr[i]));
-        }
+        Arrays.sort(numbers);
+        answer = numbers[numbers.length - 1] * numbers[numbers.length -2];
+            
         return answer;
     }
 }
