@@ -1,13 +1,10 @@
 class Solution {
-    public int solution(String myString, String pat) {
-        int answer = 0;
-        
-        String replacedString = myString.replace('A', 'X').replace('B', 'A').replace('X', 'B');
-        
-        if (replacedString.contains(pat)) {
-            answer = 1;
-        }
-        
-        return answer;
+    public int solution(int balls, int share) {
+        return combination(balls, share);
+    }
+    
+    public static int combination(int balls, int share){
+        if(balls == share || share == 0) return 1;
+        return combination((balls -1), (share -1)) + combination(balls - 1, share);
     }
 }
