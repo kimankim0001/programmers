@@ -1,12 +1,13 @@
-import java.util.*;
-
 class Solution {
-    public int solution(int[] numbers) {
+    public int solution(String myString, String pat) {
         int answer = 0;
         
-        Arrays.sort(numbers);
-        answer = numbers[numbers.length - 1] * numbers[numbers.length -2];
-            
+        String replacedString = myString.replace('A', 'X').replace('B', 'A').replace('X', 'B');
+        
+        if (replacedString.contains(pat)) {
+            answer = 1;
+        }
+        
         return answer;
     }
 }
