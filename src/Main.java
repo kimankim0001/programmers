@@ -4,8 +4,9 @@ public class Main {
 
         Solution s1 = new Solution();
                                
-        System.out.println(s1.solution(3,2));
-        System.out.println(s1.solution(5,3));
+        System.out.println(s1.solution("abcdevwxyz"));
+        System.out.println(s1.solution("jjnnllkkmm"));
+        
         
     }
 }
