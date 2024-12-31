@@ -1,15 +1,12 @@
 class Solution {
-    public int solution(int hp) {
+    public int solution(int n) {
         int answer = 0;
-        
-        answer += hp / 5;
-        hp %= 5;
-        
-        answer += hp / 3;
-        hp %= 3;
-        
-        answer += hp;
-        
+        for (int i = 0; i < n; i++) {
+            answer++;
+            while (answer % 3 == 0 || String.valueOf(answer).contains("3")) {
+                answer++;
+            }
+        }
         return answer;
     }
 }

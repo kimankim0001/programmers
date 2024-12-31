@@ -4,9 +4,7 @@ public class Main {
 
         Solution s1 = new Solution();
                                
-        System.out.println(s1.solution(23));
-        System.out.println(s1.solution(24));
-        System.out.println(s1.solution(999));
-        
+        System.out.println(s1.solution(15));
+        System.out.println(s1.solution(40));
     }
 }
