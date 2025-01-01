@@ -1,12 +1,13 @@
 class Solution {
-    public String solution(String my_string) {
+    public String solution(String myString) {
         String answer = "";
-        
-        for(int i = 0; i < my_string.length(); i++) {
-            if(Character.isUpperCase(my_string.charAt(i))) {
-                answer += Character.toLowerCase(my_string.charAt(i));
-            } else {
-                answer += Character.toUpperCase(my_string.charAt(i));
+        int tmp;
+        for(int i=0; i<myString.length(); i++){
+            tmp = (int)myString.charAt(i);
+            if((65<=tmp)&&(tmp<=90)){
+                answer += (char)(tmp+32);
+            }else{
+                answer += (char)tmp;
             }
         }
         return answer;
