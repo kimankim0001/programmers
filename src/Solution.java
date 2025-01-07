@@ -1,8 +1,16 @@
+import java.util.*;
+
 class Solution {
-    public int solution(int number, int n, int m) {
-        if(number%n==0&&number%m==0){
-            return 1;
-        }
-        return 0;
+    public int solution(String before, String after) {
+        char[] arr1 = before.toCharArray();
+        char[] arr2 = after.toCharArray();
+        
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        
+        String str1 = new String(arr1);
+        String str2 = new String(arr2);
+        
+        return str1.equals(str2) ? 1 : 0;
     }
 }
