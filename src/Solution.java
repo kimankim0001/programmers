@@ -1,7 +1,16 @@
+import java.util.Arrays;
+
 class Solution {
-    public int solution(int a, int b) {
-        int plusCase = Integer.valueOf((String.valueOf(a) + String.valueOf(b)));
-        int multiplyCase = 2 * a * b;
-        return plusCase > multiplyCase ? plusCase : multiplyCase;
+    public String solution(String my_string) {
+        String answer = "";
+        String[] abc = my_string.toLowerCase().split("");
+
+        Arrays.sort(abc);
+
+        for (int i = 0; i < abc.length; i++) {
+            answer += abc[i];
+        }
+
+        return answer;
     }
 }
