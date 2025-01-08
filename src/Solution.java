@@ -1,16 +1,7 @@
-import java.util.*;
-
 class Solution {
-    public int solution(String before, String after) {
-        char[] arr1 = before.toCharArray();
-        char[] arr2 = after.toCharArray();
-        
-        Arrays.sort(arr1);
-        Arrays.sort(arr2);
-        
-        String str1 = new String(arr1);
-        String str2 = new String(arr2);
-        
-        return str1.equals(str2) ? 1 : 0;
+    public int solution(int a, int b) {
+        int plusCase = Integer.valueOf((String.valueOf(a) + String.valueOf(b)));
+        int multiplyCase = 2 * a * b;
+        return plusCase > multiplyCase ? plusCase : multiplyCase;
     }
 }
