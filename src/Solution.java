@@ -1,16 +1,16 @@
-import java.util.Arrays;
-
 class Solution {
-    public String solution(String my_string) {
-        String answer = "";
-        String[] abc = my_string.toLowerCase().split("");
-
-        Arrays.sort(abc);
-
-        for (int i = 0; i < abc.length; i++) {
-            answer += abc[i];
+    public int solution(int price) {
+        int answer = 0;
+        
+        if(price >= 500000) {
+            answer = (int)(price * 0.8);
+        } else if(price >= 300000) {
+            answer = (int)(price * 0.9);
+        } else if (price >= 100000) {
+            answer = (int)(price * 0.95);
+        } else {
+            answer = price;
         }
-
         return answer;
     }
 }

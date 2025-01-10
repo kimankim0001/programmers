@@ -4,8 +4,8 @@ public class Main {
 
         Solution s1 = new Solution();
                                
-        System.out.println(s1.solution("Bcad"));
-        System.out.println(s1.solution("heLLo"));
-        System.out.println(s1.solution("Python"));
+        System.out.println(s1.solution(150000));
+        System.out.println(s1.solution(580000));        
+        
     }
 }
