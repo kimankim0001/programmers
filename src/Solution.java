@@ -1,9 +1,17 @@
 class Solution {
-    public int solution(String my_string, String is_suffix) {
+    public int solution(int n) {
         int answer = 0;
-        if(my_string.endsWith(is_suffix)){
-            answer = 1;
+        int num = 1;
+        int k = 1;
+        
+        while(true) {
+            num *= k;
+            if(num > n) {
+                answer = k;
+                break;
+            }
+            k++;
         }
-        return answer;
+        return answer - 1;
     }
 }
