@@ -1,17 +1,9 @@
 class Solution {
-    public int solution(int n) {
-        int answer = 0;
-        int num = 1;
-        int k = 1;
-        
-        while(true) {
-            num *= k;
-            if(num > n) {
-                answer = k;
-                break;
-            }
-            k++;
+    public String solution(String my_string, int k) {
+        String answer = "";
+        for(int i = 0; i<k; i++){
+            answer+=my_string;
         }
-        return answer - 1;
+        return answer;
     }
 }
