@@ -1,14 +1,14 @@
 class Solution {
-    public int solution(int a, int b) {
+    public int solution(String my_string) {
         int answer = 0;
-        String result1 = a +"" + b ;
-        String result2 = b +"" + a ;
-        if (Integer.parseInt(result1) > Integer.parseInt(result2)) {
-            answer = Integer.parseInt(result1);
+        
+        my_string = my_string.replaceAll("[a-zA-Z]", "");
+        String[] string = my_string.split("");
+        
+        for(String i : string) {
+            answer += Integer.parseInt(i);
         }
-        else {
-            answer = Integer.parseInt(result2);
-        }
+        
         return answer;
     }
 }
