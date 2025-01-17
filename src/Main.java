@@ -4,8 +4,8 @@ public class Main {
 
         Solution s1 = new Solution();
                                
-        System.out.println(s1.solution("abcabcadc"));
-        System.out.println(s1.solution("abdc"));
-        System.out.println(s1.solution("hello"));
+        System.out.println(s1.solution("582","734"));
+        System.out.println(s1.solution("18446744073709551615","287346502836570928366"));
+        System.out.println(s1.solution("0","0"));
     }
 }

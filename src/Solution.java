@@ -1,22 +1,11 @@
-import java.util.*;
+import java.math.BigInteger;
 class Solution {
-    public String solution(String s) {
-        String answer = "";
-        String[] arr=s.split("");
-        int cnt=0;
+    public String solution(String a, String b) {
+        BigInteger big1 = new BigInteger(a);
+        BigInteger big2 = new BigInteger(b);
         
-        Arrays.sort(arr);
-        for(int i=0; i<arr.length; i++){
-            cnt=0;
-            for(int j=0; j<arr.length; j++){
-                if(arr[i].equals(arr[j])){
-                    cnt++;
-                }
-            }
-            if(cnt==1){
-                answer+=arr[i];
-            }            
-        }
+        BigInteger sum = big1.add(big2);
+        String answer = sum.toString();
         return answer;
     }
 }
