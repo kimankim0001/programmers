@@ -1,16 +1,17 @@
 class Solution {
-    public int[] solution(int[] num_list, int n) {
-        int[] answer = new int[num_list.length];
-        int index = 0;
-
-        for (int i = n; i < num_list.length; i++) {
-            answer[index++] = num_list[i];
+    public int[] solution(int numer1, int denom1, int numer2, int denom2) {
+        int numerator = (numer1 * denom2) + (numer2 * denom1); 
+        int denominator = denom1 * denom2;
+        
+        for(int i = numerator-1; i > 1; i--) {
+            // 기약분수로 만들기
+            if(numerator % i == 0 && denominator % i == 0) { 
+                numerator /= i;
+                denominator /= i;
+            }
         }
-
-        for (int i = 0; i < n; i++) {
-            answer[index++] = num_list[i];
-        }
-
+        
+        int[] answer = { numerator, denominator };
         return answer;
     }
 }
