@@ -5,6 +5,6 @@ public class Main {
         Solution s1 = new Solution();
 
                                
-        System.out.println(s1.solution("aaaaa","bbbbb"));        
+        System.out.println(s1.solution("ihrhbakrfpndopljhygc",4,2));        
     }
 }
