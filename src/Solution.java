@@ -1,21 +1,12 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Solution {
-    public int[] solution(int[] arr) {
-        List<Integer> result = new ArrayList<>();
+    public int[] solution(String myString) {
+        String[] parts = myString.split("x", -1);
+        int[] lengths = new int[parts.length];
 
-        for (int num : arr) {
-            for (int i = 0; i < num; i++) {
-                result.add(num);
-            }
+        for (int i = 0; i < parts.length; i++) {
+            lengths[i] = parts[i].length();
         }
 
-        int[] answer = new int[result.size()];
-        for (int i = 0; i < result.size(); i++) {
-            answer[i] = result.get(i);
-        }
-
-        return answer;
+        return lengths;
     }
 }
