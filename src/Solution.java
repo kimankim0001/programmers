@@ -1,12 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Solution {
-    public int[] solution(String myString) {
-        String[] parts = myString.split("x", -1);
-        int[] lengths = new int[parts.length];
-
-        for (int i = 0; i < parts.length; i++) {
-            lengths[i] = parts[i].length();
+    public String[] solution(String[] strArr) {
+        List<String> list = new ArrayList<>();
+        for (String str : strArr) {
+            if (!str.contains("ad")) list.add(str);
         }
-
-        return lengths;
+        String[] answer = list.toArray(new String[0]);
+        return answer;
     }
 }
