@@ -1,13 +1,17 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Solution {
-    public String[] solution(String[] strArr) {
-        List<String> list = new ArrayList<>();
-        for (String str : strArr) {
-            if (!str.contains("ad")) list.add(str);
+    public int solution(int[] num_list) {
+        String oddS = "";
+        String evenS = "";
+        for(int i=0; i<num_list.length; i++){
+            if(num_list[i]%2==0){
+                evenS += Integer.toString(num_list[i]);
+            }else{
+                oddS += Integer.toString(num_list[i]);
+            }
         }
-        String[] answer = list.toArray(new String[0]);
-        return answer;
+        int oddSum = Integer.parseInt(oddS);
+        int evenSum = Integer.parseInt(evenS);
+        
+        return oddSum + evenSum;
     }
 }

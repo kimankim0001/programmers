@@ -6,8 +6,8 @@ public class Main {
 
         Solution s1 = new Solution();
 
-        String[] str1 = {"and","notad","abcd"};
+        int[] arr1 = {3, 4, 5, 2, 1};
                                
-        System.out.println(Arrays.toString(s1.solution(str1)));        
+        System.out.println(s1.solution(arr1));        
     }
 }
