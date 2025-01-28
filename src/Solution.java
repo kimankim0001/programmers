@@ -1,17 +1,17 @@
+import java.util.*;
+
 class Solution {
-    public int solution(int[] num_list) {
-        String oddS = "";
-        String evenS = "";
-        for(int i=0; i<num_list.length; i++){
-            if(num_list[i]%2==0){
-                evenS += Integer.toString(num_list[i]);
-            }else{
-                oddS += Integer.toString(num_list[i]);
+    public String[] solution(String[] todo_list, boolean[] finished) {
+        List<String> answerList = new ArrayList<>();
+
+        for (int i = 0; i < finished.length; i++) {
+            if (!finished[i]) {
+                answerList.add(todo_list[i]);
             }
         }
-        int oddSum = Integer.parseInt(oddS);
-        int evenSum = Integer.parseInt(evenS);
-        
-        return oddSum + evenSum;
+
+        String[] answer = new String[answerList.size()];
+        answer = answerList.toArray(answer);
+        return answer;
     }
 }
