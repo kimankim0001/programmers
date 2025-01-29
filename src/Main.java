@@ -6,9 +6,8 @@ public class Main {
 
         Solution s1 = new Solution();
 
-        String[] str1 = {"problemsolving", "practiceguitar", "swim", "studygraph"};
-        boolean[] arr1 = {true, false, true, false};
+        String[] str1 = {"nami", "ahri", "jayce", "garen", "ivern", "vex", "jinx"};
                                
-        System.out.println(Arrays.toString(s1.solution(str1,arr1)));        
+        System.out.println(Arrays.toString(s1.solution(str1)));        
     }
 }

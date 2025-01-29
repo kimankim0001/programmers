@@ -1,17 +1,11 @@
-import java.util.*;
-
 class Solution {
-    public String[] solution(String[] todo_list, boolean[] finished) {
-        List<String> answerList = new ArrayList<>();
-
-        for (int i = 0; i < finished.length; i++) {
-            if (!finished[i]) {
-                answerList.add(todo_list[i]);
-            }
+    public String[] solution(String[] names) {
+        String[] answer = new String[(names.length + 4) / 5];
+        int idx = 0;
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = names[idx];
+            idx += 5;
         }
-
-        String[] answer = new String[answerList.size()];
-        answer = answerList.toArray(answer);
         return answer;
     }
 }
