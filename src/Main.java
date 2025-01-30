@@ -6,8 +6,8 @@ public class Main {
 
         Solution s1 = new Solution();
 
-        String[] str1 = {"nami", "ahri", "jayce", "garen", "ivern", "vex", "jinx"};
+        int[] arr1 = {2, 1, 6};
                                
-        System.out.println(Arrays.toString(s1.solution(str1)));        
+        System.out.println(Arrays.toString(s1.solution(arr1, 1)));        
     }
 }
