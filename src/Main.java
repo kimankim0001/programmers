@@ -6,8 +6,8 @@ public class Main {
 
         Solution s1 = new Solution();
 
-        int[] arr1 = {2, 1, 6};
+        int[] arr1 = {0, 0, 0, 1};
                                
-        System.out.println(Arrays.toString(s1.solution(arr1, 1)));        
+        System.out.println(s1.solution(arr1, 0));        
     }
 }

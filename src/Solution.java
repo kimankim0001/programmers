@@ -1,8 +1,13 @@
 class Solution {
-    public int[] solution(int[] num_list, int n) {
-        int[] answer = new int[n];
-        for(int i=0; i<answer.length; i++){
-            answer[i] = num_list[i];
+    public int solution(int[] arr, int idx) {
+        int answer = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (i >= idx && arr[i] == 1) {
+                answer = i;
+                break;
+            } else {
+                answer = -1;
+            }
         }
         return answer;
     }
