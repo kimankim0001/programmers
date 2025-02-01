@@ -1,13 +1,10 @@
+import java.util.*;
+
 class Solution {
-    public int solution(int[] arr, int idx) {
-        int answer = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (i >= idx && arr[i] == 1) {
-                answer = i;
-                break;
-            } else {
-                answer = -1;
-            }
+    public List<Integer> solution(int n, int k) {
+        List<Integer> answer = new ArrayList<>();
+        for (int i=1; k*i<=n; i++) {
+            answer.add(k*i);
         }
         return answer;
     }
