@@ -1,9 +1,18 @@
+import java.util.Arrays;
+
 class Solution {
-    public int solution(String my_string, String is_prefix) {
-        int answer = 0;
-        if(my_string.startsWith(is_prefix)){
-            answer = 1;
+    public String[] solution(String my_string) {
+        int length = my_string.length();
+        String[] suffixes = new String[length];
+
+        // 모든 접미사 생성
+        for (int i = 0; i < length; i++) {
+            suffixes[i] = my_string.substring(i);
         }
-        return answer;
+
+        // 접미사 배열을 사전순으로 정렬
+        Arrays.sort(suffixes);
+
+        return suffixes;
     }
 }

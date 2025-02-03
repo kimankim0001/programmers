@@ -8,6 +8,6 @@ public class Main {
 
 //        int[] arr1 = {0, 0, 0, 1};
                                
-        System.out.println(s1.solution("banana", "ban"));        
+        System.out.println(Arrays.toString(s1.solution("banana")));        
     }
 }
