@@ -6,8 +6,9 @@ public class Main {
 
         Solution s1 = new Solution();
 
-//        int[] arr1 = {0, 0, 0, 1};
+        String[] arr1 = {"progressive", "hamburger", "hammer", "ahocorasick"};
+        int[][] arr2 = {{0,4},{1,2},{3,5},{7,7}};
                                
-        System.out.println(Arrays.toString(s1.solution("banana")));        
+        System.out.println(s1.solution(arr1, arr2));        
     }
 }
