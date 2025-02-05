@@ -1,13 +1,12 @@
 class Solution {
-    public String solution(String[] my_strings, int[][] parts) {
-        String answer = "";
-        
-        for(int i=0; i<my_strings.length; i++){
-            String str = my_strings[i];
-            
-            answer += str.substring(parts[i][0], parts[i][1]+1);
-        }
-        
-        return answer;
-    }
+    public String solution(int[] numLog) {
+		String answer = "";
+		for (int i = 1; i < numLog.length; i++) {
+                 if((numLog[i] - numLog[i-1]) == 1) answer += "w";
+			else if((numLog[i] - numLog[i-1]) == -1) answer += "s";
+			else if((numLog[i] - numLog[i-1]) == 10) answer += "d";
+			else if((numLog[i] - numLog[i-1]) == -10) answer += "a";
+		}
+		return answer;
+	}
 }
