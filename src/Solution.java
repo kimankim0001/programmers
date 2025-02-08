@@ -1,15 +1,16 @@
+import java.util.*;
 class Solution {
-    public int[] solution(int[] arr, int k) {
-        if(k%2==0){
-            for(int i=0; i<arr.length;i++){
-                arr[i] += k;   
-            }
+    public int[] solution(int[] arr, int[] delete_list) {
+        List<Integer> arrList = new ArrayList<>();
+        List<Integer> deleteList = new ArrayList<>();
+        for (int i : arr) { 
+            arrList.add(i);        
         }
-        else{
-            for(int i=0; i<arr.length;i++){
-                arr[i] *= k;   
-            }
+        for (int i : delete_list) { 
+            deleteList.add(i);        
         }
-        return arr;
+        
+        arrList.removeAll(deleteList);
+        return arrList.stream().mapToInt(i->i).toArray();
     }
 }
