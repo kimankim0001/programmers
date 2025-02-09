@@ -1,16 +1,20 @@
-import java.util.*;
+import java.util.ArrayList;
+
 class Solution {
-    public int[] solution(int[] arr, int[] delete_list) {
-        List<Integer> arrList = new ArrayList<>();
-        List<Integer> deleteList = new ArrayList<>();
-        for (int i : arr) { 
-            arrList.add(i);        
+    public int[] solution(int[] arr, int[][] intervals) {
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for(int i = 0; i < intervals.length; i++) {
+            for(int j = intervals[i][0]; j <= intervals[i][1]; j++) {
+                list.add(arr[j]);
+            }
         }
-        for (int i : delete_list) { 
-            deleteList.add(i);        
+
+        int[] answer = new int[list.size()];
+        for(int i = 0; i < list.size(); i++) {
+            answer[i] = list.get(i);
         }
-        
-        arrList.removeAll(deleteList);
-        return arrList.stream().mapToInt(i->i).toArray();
+
+        return answer;
     }
 }
