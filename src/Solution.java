@@ -1,20 +1,13 @@
-import java.util.ArrayList;
-
 class Solution {
-    public int[] solution(int[] arr, int[][] intervals) {
-        ArrayList<Integer> list = new ArrayList<>();
-
-        for(int i = 0; i < intervals.length; i++) {
-            for(int j = intervals[i][0]; j <= intervals[i][1]; j++) {
-                list.add(arr[j]);
+    public int solution(int[][] board, int k) {
+        int answer = 0;
+        for(int i =0; i<board.length; i++){
+            for(int j=0; j<board[0].length; j++) {
+                if(i+j <= k) {
+                    answer += board[i][j];
+                }
             }
         }
-
-        int[] answer = new int[list.size()];
-        for(int i = 0; i < list.size(); i++) {
-            answer[i] = list.get(i);
-        }
-
         return answer;
     }
 }
