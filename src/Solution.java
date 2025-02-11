@@ -1,13 +1,14 @@
 class Solution {
-    public int solution(int[][] board, int k) {
-        int answer = 0;
-        for(int i =0; i<board.length; i++){
-            for(int j=0; j<board[0].length; j++) {
-                if(i+j <= k) {
-                    answer += board[i][j];
-                }
+    public int[] solution(int[] arr, int[][] queries) {
+        for (int[] query : queries) {
+            int start = query[0];
+            int end = query[1];
+
+            for (int i = start; i <= end; i++) {
+                arr[i] += 1;
             }
         }
-        return answer;
+
+        return arr;
     }
 }
