@@ -10,6 +10,6 @@ public class Main {
 //        int[] arr2 = {94, 777, 104, 1000, 1, 12};        
         int[][] arr2 = {{0,1},{1,2},{2,3}};
                                
-        System.out.println(Arrays.toString(s1.solution(arr1,arr2)));        
+        System.out.println(s1.solution("AbCdEFG","dE"));        
     }
 }

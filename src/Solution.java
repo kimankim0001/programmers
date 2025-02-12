@@ -1,14 +1,17 @@
 class Solution {
-    public int[] solution(int[] arr, int[][] queries) {
-        for (int[] query : queries) {
-            int start = query[0];
-            int end = query[1];
+    public String solution(String myString, String pat) {
+        String answer = "";
+        int patLength = pat.length();
+        int myStringLength = myString.length();
 
-            for (int i = start; i <= end; i++) {
-                arr[i] += 1;
+        for (int i = myStringLength - 1; i >= 0; i--) {
+            String substr = myString.substring(0, i + 1);
+            if (substr.endsWith(pat)) {
+                answer = substr;
+                break;
             }
         }
 
-        return arr;
+        return answer;
     }
 }
