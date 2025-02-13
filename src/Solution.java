@@ -1,17 +1,18 @@
 class Solution {
-    public String solution(String myString, String pat) {
-        String answer = "";
-        int patLength = pat.length();
-        int myStringLength = myString.length();
-
-        for (int i = myStringLength - 1; i >= 0; i--) {
-            String substr = myString.substring(0, i + 1);
-            if (substr.endsWith(pat)) {
-                answer = substr;
-                break;
+    public int solution(int[] num_list) {
+        int answer = 0;
+        
+        for (int num : num_list) {
+            while (num != 1) {
+                if (num % 2 == 0) {
+                    num /= 2;
+                } else {
+                    num = (num - 1) / 2;
+                }
+                answer++;
             }
         }
-
+        
         return answer;
     }
 }
