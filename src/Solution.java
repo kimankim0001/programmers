@@ -1,33 +1,13 @@
-import java.util.ArrayList;
-
+import java.util.*;
 class Solution {
-    public int[] solution(int[] arr) {
-        ArrayList<Integer> tmp= new ArrayList();
-        
-        int i=0;
-        while(i<arr.length){
-            
-            if(tmp.size()==0){
-                tmp.add(arr[i]);
-                i=i+1;
+    public int[] solution(int[] arr, int[] query) {
+        for(int i =0; i<query.length; i++) {
+            if(i % 2 == 0) {
+                arr = Arrays.copyOfRange(arr, 0, query[i]+1);
+            }else {
+                arr = Arrays.copyOfRange(arr, query[i], arr.length);
             }
-            else{
-                int last=tmp.get(tmp.size()-1);
-                if(tmp.size()!=0 && last<arr[i]){
-                tmp.add(arr[i]);
-                i=i+1;
-                }
-                else if(tmp.size()!=0 && last>=arr[i]){
-                    tmp.remove(tmp.size()-1);
-                }
-            }
-            
         }
-        
-        int stk[]=new int[tmp.size()];
-        for(int k=0;k<tmp.size();k++){
-            stk[k]=tmp.get(k).intValue();
-        }
-        return stk;
+        return arr;
     }
 }
