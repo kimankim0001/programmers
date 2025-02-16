@@ -10,7 +10,7 @@ public class Main {
         int[] arr2 = {4, 1, 2};        
 //        int[][] arr2 = {{0,1},{1,2},{2,3}};
                                
-//        System.out.println(s1.solution(arr1));
-        System.out.println(Arrays.toString(s1.solution(arr1,arr2)));
+        System.out.println(s1.solution("He11oWor1d", "lloWorl", 2));
+//        System.out.println(Arrays.toString(s1.solution(arr1,arr2)));
     }
 }

@@ -1,13 +1,11 @@
-import java.util.*;
 class Solution {
-    public int[] solution(int[] arr, int[] query) {
-        for(int i =0; i<query.length; i++) {
-            if(i % 2 == 0) {
-                arr = Arrays.copyOfRange(arr, 0, query[i]+1);
-            }else {
-                arr = Arrays.copyOfRange(arr, query[i], arr.length);
-            }
+
+    public String solution(String my_string, String overwrite_string, int s) {
+        String answer = my_string.substring(0, s) + overwrite_string;
+
+        if(my_string.length() > answer.length()) {
+            answer += my_string.substring(answer.length());
         }
-        return arr;
+        return answer;
     }
 }
