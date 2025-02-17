@@ -1,11 +1,19 @@
 class Solution {
+        public int solution(String ineq, String eq, int n, int m) {
+                if (ineq.equals(">")) {
+                        if (eq.equals("=")) {
+                                return n >= m ? 1 : 0;
+                        } else if (eq.equals("!")) {
+                                return n > m ? 1 : 0;
+                        }
+                } else if (ineq.equals("<")) {
+                        if (eq.equals("=")) {
+                                return n <= m ? 1 : 0;
+                        } else if (eq.equals("!")) {
+                                return n < m ? 1 : 0;
+                        }
+                }
 
-    public String solution(String my_string, String overwrite_string, int s) {
-        String answer = my_string.substring(0, s) + overwrite_string;
-
-        if(my_string.length() > answer.length()) {
-            answer += my_string.substring(answer.length());
+                return 0;
         }
-        return answer;
-    }
 }
