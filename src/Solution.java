@@ -1,19 +1,21 @@
 class Solution {
-        public int solution(String ineq, String eq, int n, int m) {
-                if (ineq.equals(">")) {
-                        if (eq.equals("=")) {
-                                return n >= m ? 1 : 0;
-                        } else if (eq.equals("!")) {
-                                return n > m ? 1 : 0;
-                        }
-                } else if (ineq.equals("<")) {
-                        if (eq.equals("=")) {
-                                return n <= m ? 1 : 0;
-                        } else if (eq.equals("!")) {
-                                return n < m ? 1 : 0;
-                        }
-                }
-
-                return 0;
+    public String solution(String my_string, int[][] queries) {
+        char[] arr = my_string.toCharArray(); 
+        
+        for (int[] query : queries) {
+            int start = query[0];
+            int end = query[1];
+            
+            while (start < end) {
+                char temp = arr[start];
+                arr[start] = arr[end];
+                arr[end] = temp;
+                
+                start++;
+                end--;
+            }
         }
+        
+        return new String(arr);
+    }
 }
