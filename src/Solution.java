@@ -1,21 +1,15 @@
 class Solution {
-    public String solution(String my_string, int[][] queries) {
-        char[] arr = my_string.toCharArray(); 
-        
-        for (int[] query : queries) {
-            int start = query[0];
-            int end = query[1];
-            
-            while (start < end) {
-                char temp = arr[start];
-                arr[start] = arr[end];
-                arr[end] = temp;
-                
-                start++;
-                end--;
+    public int[] solution(int[] arr, int[][] queries) {
+        for(int i = 0 ; i < queries.length ; i++) {
+            int s = queries[i][0];
+            int e = queries[i][1];
+            int k = queries[i][2];
+            for(int j = s ; j <= e ; j++) {
+                if(j % k == 0) {
+                    arr[j] += 1;
+                }
             }
         }
-        
-        return new String(arr);
+        return arr;
     }
 }
