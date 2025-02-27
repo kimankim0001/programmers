@@ -1,13 +1,14 @@
-import java.util.Scanner;
-
-public class Solution {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        if(n%2==0){
-            System.out.print(n+" is even");
-        }else{
-            System.out.print(n+" is odd");
+class Solution {
+    public int solution(int a, int d, boolean[] included) {
+        int answer = 0;
+        
+        for (int i = 0; i < included.length; i++) {
+            if (included[i]) {
+                answer += a + (i * d);
+                continue;
+            }
         }
+        
+        return answer;
     }
 }
