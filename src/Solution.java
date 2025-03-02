@@ -1,13 +1,19 @@
-import java.util.*;
-class Solution {
-    public int[] solution(int[] arr, int[][] queries) {
+import java.util.Arrays;
 
-        int n = 0;
-        for(int i =0; i<queries.length; i++){
-            n = arr[queries[i][0]];
-            arr[queries[i][0]] = arr[queries[i][1]];
-            arr[queries[i][1]] = n;
+class Solution {
+    public int[] solution(int[] arr) {
+        int min = 100000, max = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 2) {
+                min = Math.min(min, i);
+                max = Math.max(max, i);
+            }
         }
-        return arr;
+
+        if (min <= max) {
+            return Arrays.copyOfRange(arr, min, max + 1);
+        } else {
+            return new int[]{-1};
+        }
     }
 }
