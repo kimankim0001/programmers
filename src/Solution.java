@@ -1,14 +1,11 @@
-import java.util.Scanner;
+class Solution {
+    public int solution(int chicken) {
+        int service = 0;
 
-public class Solution {
-    public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		for (int i = 1; i <= n; i++) {
-			for (int j = 0; j < i; j++) {
-				System.out.print("*");
-			}
-			System.out.println();
-		}
-	}
+        while (chicken >= 10) {
+            service += chicken / 10;
+            chicken = (chicken / 10) + (chicken % 10);
+        }
+        return service;
+    }
 }
