@@ -1,15 +1,13 @@
+import java.util.*;
 class Solution {
-    public int solution(String A, String B) {
-        int answer = -1;
-        String temp = A;
-        for(int i = 0 ; i < A.length() ; i++){
-            if(temp.equals(B)){
-                answer = i;
-                break;
-            }
-            temp = temp.charAt(A.length()-1) + temp.substring(0, A.length()-1);
+    public int[] solution(int[] arr, int[][] queries) {
 
+        int n = 0;
+        for(int i =0; i<queries.length; i++){
+            n = arr[queries[i][0]];
+            arr[queries[i][0]] = arr[queries[i][1]];
+            arr[queries[i][1]] = n;
         }
-        return answer;
+        return arr;
     }
 }
