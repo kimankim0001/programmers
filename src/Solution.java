@@ -1,11 +1,13 @@
 class Solution {
-    public int[] solution(int[] numbers, int num1, int num2) {
-        int[] answer = new int[num2 - num1 + 1];
-
-        for (int i = num1; i <= num2; i++) {
-            answer[i -num1] = numbers[i];
+    public int[] solution(int num, int total) {
+        int[] answer = new int[num];
+        int start = (total/num) - ((num - 1)/2);
+        
+        for(int i = 0; i < num; i++) {
+            answer[i] = start;
+            start++;
         }
-
+        
         return answer;
     }
 }

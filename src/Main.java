@@ -15,6 +15,6 @@ public class Main {
                                
 //        System.out.println(s1.solution("hello",3));
 //        System.out.println(s1.solution("hello", "ohell"));
-        System.out.println(Arrays.toString(s1.solution(arr1,1,3)));
+        System.out.println(Arrays.toString(s1.solution(3,12)));
     }
 }
