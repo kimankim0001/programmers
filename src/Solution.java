@@ -1,13 +1,19 @@
+import java.util.Arrays;
+
 class Solution {
-    public int[] solution(int num, int total) {
-        int[] answer = new int[num];
-        int start = (total/num) - ((num - 1)/2);
-        
-        for(int i = 0; i < num; i++) {
-            answer[i] = start;
-            start++;
+    public int solution(int[] sides) {
+        int answer = 0;
+        Arrays.sort(sides);
+        int min = sides[0];
+        int max = sides[1];
+
+        for(int i = max - min + 1 ; i <= max ; i++){
+            answer++;
         }
-        
+
+        for(int i = max + 1 ; i < min + max ; i++){
+            answer++;
+        }
         return answer;
     }
 }
