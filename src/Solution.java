@@ -1,21 +1,26 @@
-import java.util.Arrays;
+import java.util.*;
 
 class Solution {
-    public int[] solution(int[] arr, int[][] queries) {
-        int[] answer = new int[queries.length];
-        Arrays.fill(answer, -1);
-
-        for (int idx = 0; idx < queries.length; idx++) {
-            int[] query = queries[idx];
-            int s = query[0], e = query[1], k = query[2];
-
-            for (int i = s; i <= e; i++) {
-                if (k < arr[i]) {
-                    answer[idx] = answer[idx] == -1 ? arr[i] : Math.min(answer[idx], arr[i]);
-                }
+    public int solution(int a, int b) {
+        int finalB = b / GCD(a, b);
+        
+        while( finalB != 1) {
+            if(finalB % 2 == 0) {
+                finalB /= 2;
+            }else if (finalB % 5 == 0) {
+                finalB /= 5;
+            }else {
+                return 2;
             }
         }
-
-        return answer;
+        
+        return 1;
+    }
+    private int GCD(int a, int b) {
+        if (b == 0) {
+            return a;
+        } else {
+            return GCD(b, a % b);
+        }
     }
 }
