@@ -1,26 +1,15 @@
 import java.util.*;
-
 class Solution {
-    public int solution(int a, int b) {
-        int finalB = b / GCD(a, b);
-        
-        while( finalB != 1) {
-            if(finalB % 2 == 0) {
-                finalB /= 2;
-            }else if (finalB % 5 == 0) {
-                finalB /= 5;
-            }else {
-                return 2;
+    public String solution(String[] id_pw, String[][] db) {
+        for(int i = 0; i<db.length; i++) {
+            if(id_pw[0].equals(db[i][0])) {
+                if(id_pw[1].equals(db[i][1])) {
+                    return "login";
+                } else {
+                    return "wrong pw";
+                }
             }
         }
-        
-        return 1;
-    }
-    private int GCD(int a, int b) {
-        if (b == 0) {
-            return a;
-        } else {
-            return GCD(b, a % b);
-        }
+        return "fail";
     }
 }
