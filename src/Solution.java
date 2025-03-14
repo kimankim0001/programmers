@@ -1,15 +1,16 @@
-import java.util.*;
+import java.util.Arrays;
+
 class Solution {
-    public String solution(String[] id_pw, String[][] db) {
-        for(int i = 0; i<db.length; i++) {
-            if(id_pw[0].equals(db[i][0])) {
-                if(id_pw[1].equals(db[i][1])) {
-                    return "login";
-                } else {
-                    return "wrong pw";
-                }
-            }
+    public int solution(int[] sides) {
+        int answer = 0;
+        
+        Arrays.sort(sides);
+        
+        if(sides[2] < sides[0] + sides[1]) {
+            answer = 1;
+        } else {
+            answer = 2;
         }
-        return "fail";
+        return answer;
     }
 }
