@@ -1,10 +1,20 @@
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
-    public int solution(int[] array, int height) {
+    public int solution(int[] array) {
+        int maxCount = 0;
         int answer = 0;
-        for(int i =0; i<array.length; i++){
-            if(height<array[i]){
-                answer+=1;
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int number : array){
+            int count = map.getOrDefault(number, 0) + 1;
+            if(count > maxCount){
+                maxCount = count;
+                answer = number;
+            } else if(count == maxCount){
+                answer = -1;
             }
+            map.put(number, count);
         }
         return answer;
     }
