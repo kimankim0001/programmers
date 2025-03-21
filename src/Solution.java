@@ -1,19 +1,11 @@
 class Solution {
-    public int solution(String[] babbling) {
+    public int solution(String str1, String str2) {
         int answer = 0;
-        String[] pron = {"aya", "ye", "woo", "ma"};
-        
-        for(String word : babbling){
-            for(String p : pron){
-                if(word.contains(p)){
-                    word = word.replace(p, " ");
-                }
-            }
-            
-            word = word.replace(" ", "");
-            if(word.equals("")) answer++;
+        if (str1.contains(str2)) {
+            answer = 1;
+        } else {
+            answer = 2;
         }
-        
         return answer;
     }
 }
