@@ -1,24 +1,16 @@
+import java.util.*;
+
 class Solution {
-    public int[] solution(int n) {
-        // 약수 개수 저장할 변수
-        int count = 0;
+    public int solution(int[] array, int n) {
+        int answer = 0;
+        Arrays.sort(array);
         
-        for(int i = 1; i <= n; i++) {
-            if(n % i == 0) {
-                count++;
+        for(int i = 1 ; i < array.length ; i++){
+            if(Math.abs(n-array[0]) > Math.abs(n-array[i])){
+                array[0] = array[i];
             }
         }
-        
-        // 약수 저장할 배열
-        int[] divisors = new int[count];
-        
-        int index = 0;
-        for(int i = 1; i <= n; i++) {
-            if(n % i == 0) {
-                divisors[index++] = i;
-            }
-        }
-        
-        return divisors;
+        answer = array[0];
+        return answer;
     }
 }
