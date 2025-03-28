@@ -1,14 +1,10 @@
 class Solution {
-    public int[] solution(String[] keyinput, int[] board) {
-        int[] now = {0, 0};
-        
-        for (int i = 0; i < keyinput.length; i++){
-            if(keyinput[i].equals("left")) now[0] -= now[0]>-(board[0]/2)?1:0;
-            else if(keyinput[i].equals("right")) now[0] += now[0]<(board[0]/2)?1:0;
-            else if(keyinput[i].equals("down")) now[1] -= now[1]>-(board[1]/2)?1:0;
-            else if(keyinput[i].equals("up")) now[1] += now[1]<(board[1]/2)?1:0;
-        
-        }
-        return now;
-    }
+    public int solution(String my_string) {
+		int answer = 0;
+		String[] ms = my_string.split("[a-zA-Z]");
+		for (int i = 0; i < ms.length; i++) {
+			answer+= !ms[i].isEmpty() ? Integer.parseInt(ms[i]) :0;
+		}
+		return answer;
+	}
 }
