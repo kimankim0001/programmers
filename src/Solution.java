@@ -1,10 +1,16 @@
 class Solution {
-    public int solution(String my_string) {
-		int answer = 0;
-		String[] ms = my_string.split("[a-zA-Z]");
-		for (int i = 0; i < ms.length; i++) {
-			answer+= !ms[i].isEmpty() ? Integer.parseInt(ms[i]) :0;
-		}
-		return answer;
-	}
+    public int solution(int i, int j, int k) {
+        int count = 0;
+        String strK = String.valueOf(k);
+        for (int l = i; l <= j; l++) {
+            String value = String.valueOf(l);
+            if (value.contains(strK)) {
+                String[] array = value.split("");
+                for (String alpha : array) {
+                    if (alpha.equals(strK)) count++;
+                }
+            }
+        }
+        return count;
+    }
 }
