@@ -1,16 +1,11 @@
-import java.util.*;
-class Solution {
-    public int[] solution(int[][] score) {
-        List<Integer> scoreList = new ArrayList<>();
-        for(int[] t : score){
-            scoreList.add(t[0] + t[1]);
-        }
-        scoreList.sort(Comparator.reverseOrder());
+import java.util.Arrays;
 
-        int[] answer = new int[score.length];
-        for(int i=0; i<score.length; i++){
-            answer[i] = scoreList.indexOf(score[i][0] + score[i][1])+1;
-        }
-        return answer;
+class Solution {
+    public int solution(int[] numbers) {
+        Arrays.sort(numbers);
+        int res1 = numbers[0] * numbers[1];
+        int res2 = numbers[numbers.length - 1] * numbers[numbers.length - 2];
+
+        return res1 > res2 ? res1 : res2;
     }
 }
