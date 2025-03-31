@@ -1,11 +1,14 @@
 import java.util.Arrays;
 
 class Solution {
-    public int solution(int[] numbers) {
-        Arrays.sort(numbers);
-        int res1 = numbers[0] * numbers[1];
-        int res2 = numbers[numbers.length - 1] * numbers[numbers.length - 2];
-
-        return res1 > res2 ? res1 : res2;
+    public int[][] solution(int[] num_list, int n) {
+        int[][] answer = new int[num_list.length / n][n];
+        int count = 0;
+        for (int i = 0; i < answer.length; i++) {
+            for (int j = 0; j < answer[i].length; j++, count++) {
+                answer[i][j] = num_list[count];
+            }
+        }
+        return answer;
     }
 }
