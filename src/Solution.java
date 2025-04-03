@@ -1,12 +1,10 @@
 class Solution {
-	public int solution(int n) {
-		int answer = 0;
-		for (int i = 1; i <= 6 * n; i++) {
-			if (6 * i % n == 0) {
-				answer = i;
-				break;
-			}
-		}
-		return answer;
-	}
+    public int solution(int slice, int n) {
+        int answer = 0;
+        if(n % slice == 0)
+            answer = n / slice;
+        else 
+            answer = n / slice + 1;
+        return answer;
+    }
 }
