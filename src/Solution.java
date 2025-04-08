@@ -1,30 +1,18 @@
-import java.util.HashSet;
+import java.util.*;
 
 class Solution {
-
-
-    public int[] solution(int n, String[] words) {
-      int[] answer = { 0, 0 };
-        char chEnd = words[0].charAt(words[0].length() - 1);
-        char chStart;
-        System.out.print(chEnd + " ");
-        HashSet<String> log = new HashSet<>();
-        log.add(words[0]);
-        for (int i = 1; i < words.length; i++) {
-            chStart = words[i].charAt(0);
-            log.add(words[i]);
-            if (chEnd != chStart || log.size() != i + 1) {
-                System.out.print(i + 1 + "!");
-                answer[0] = (i % n)+1;
-                answer[1] = (i / n) + 1;
-                break;
+    public int solution(int[] schedules, int[][] timelogs, int startday) {
+        int answer = schedules.length;
+        
+        for (int i=0; i<schedules.length; i++) {
+            for (int j=0; j<7; j++) {
+                if ((startday + j)%7>0 && (startday + j)%7<6
+                   && 60*(timelogs[i][j]/100)+timelogs[i][j]%100>60*(schedules[i]/100)+schedules[i]%100+10) {
+                    answer--;
+                    break;
+                }
             }
-
-            chEnd = words[i].charAt(words[i].length() - 1);
-            System.out.print(chEnd + " ");
         }
-        System.out.println();
-        System.out.println("(" + answer[0] + ", " + answer[1] + ")");
         return answer;
     }
 }
