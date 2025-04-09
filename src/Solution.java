@@ -1,18 +1,29 @@
 import java.util.*;
 
 class Solution {
-    public int solution(int[] schedules, int[][] timelogs, int startday) {
-        int answer = schedules.length;
-        
-        for (int i=0; i<schedules.length; i++) {
-            for (int j=0; j<7; j++) {
-                if ((startday + j)%7>0 && (startday + j)%7<6
-                   && 60*(timelogs[i][j]/100)+timelogs[i][j]%100>60*(schedules[i]/100)+schedules[i]%100+10) {
-                    answer--;
-                    break;
-                }
-            }
+    Set<Integer> visited = new HashSet<>();
+    int[][] ds = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+    public int solution(String dirs) {
+        int r = 0, c = 0;
+        for (char d : dirs.toCharArray()) {
+            int di = d == 'D' ? 0 : d == 'U' ? 1 : d == 'R' ? 2 : 3; 
+            int nr = r + ds[di][0];
+            int nc = c + ds[di][1];
+            
+            if (nr < -5 || nr > 5 || nc < -5 || nc > 5) continue;
+            
+            visited.add(getIndex(r, c, nr, nc));
+            r = nr;
+            c = nc;
         }
-        return answer;
+        
+        return visited.size();
+    }
+    
+    private int getIndex(int r, int c, int nr, int nc) {
+        int lr = (nr + r + 10) * 2;
+        int lc = (nc + c + 10) * 2;
+        int res = lr * 100 + lc;
+        return res;
     }
 }

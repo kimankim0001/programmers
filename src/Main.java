@@ -14,7 +14,7 @@ public class Main {
         String[] str1 = {"tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"};
         String[][] str2 = {{"rardss", "123"},{"yyoom", "1234"},{"meosseugi", "1234"}};
                                
-        System.out.println(s1.solution(arr1,arr2,5));
+        System.out.println(s1.solution("ULURRDLLU"));
 //        System.out.println(Arrays.toString(s1.solution(3,str1)));
 //        System.out.println(Arrays.deepToString(s1.solution(arr1, 2)));
     }
