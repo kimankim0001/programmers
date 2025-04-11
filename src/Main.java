@@ -6,7 +6,7 @@ public class Main {
 
         Solution s1 = new Solution();
 
-        int[] arr1 = {5,1,3,7};
+        int[] arr1 = {4, 11};
         int[] arr11 = {2,2,6,8};
         int[][] arr2 = {{80,70},{90,50},{40,70},{50,80}};
         
@@ -15,7 +15,7 @@ public class Main {
         String[] str1 = {"BACDE", "CBADF", "AECB", "BDA"};
         String[][] str2 = {{"rardss", "123"},{"yyoom", "1234"},{"meosseugi", "1234"}};
                                
-        System.out.println(s1.solution(arr1,arr11));
+        System.out.println(s1.solution(11, arr1, 1));
 //        System.out.println(Arrays.toString(s1.solution(3,str1)));
 //        System.out.println(Arrays.deepToString(s1.solution(arr1, 2)));
     }
