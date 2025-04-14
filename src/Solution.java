@@ -1,68 +1,27 @@
 class Solution {
-    static final int INF = 500001;
-    public int solution(int N, int[][] road, int K) {
+    public int solution(int sticker[]) {
         int answer = 0;
+        int len = sticker.length;
 
-        int[][] map = new int[N + 1][N + 1];
-        
-        // 무한대로 초기화
-        for (int i = 1; i <= N; i++) {
-            for (int j = 1; j <= N; j++) {
-                if(i==j) continue;
-                map[i][j] = INF;
-            }
+        if (len == 1) return sticker[0];
+
+        int [] dp = new int[len];
+
+        // 첫 번째 스티커를 뗐을때
+        dp[0] = sticker[0];
+        dp[1] = dp[0];
+        for (int i = 2; i < len - 1; i++) {
+            dp[i] = Math.max(dp[i - 2] + sticker[i], dp[i - 1]);
         }
+        answer = dp[len - 2];
 
-        // 간선 정보 저장 (이중 배열)
-        for (int i = 0; i < road.length; i++) {
-            int a = road[i][0];
-            int b = road[i][1];
-            int w = road[i][2];
-
-            if (map[a][b] > w) {
-                map[a][b] = w;
-                map[b][a] = w;
-            }
+        // 첫 번째 스티커를 안뗐을때
+        dp[0] = 0;
+        dp[1] = sticker[1];
+        for (int i = 2; i < len; i++) {
+            dp[i] = Math.max(dp[i - 2] + sticker[i], dp[i - 1]);
         }
-
-        int[] dist = new int[N + 1];
-        for (int i = 2; i <= N; i++) {
-            dist[i] = (dist[i]==0) ? INF : map[1][i];
-        }
-
-        boolean[] visited = new boolean[N + 1];
-        visited[1] = true;
-
-        for (int i = 1; i <= N - 1; i++) { // n-1번 반복
-
-            // extract-min
-            // dist 중에 방문하지 않았고 가장 작은 값을 가지는 인덱스를 찾는다.
-            int min_idx = 1;
-            int min_value = INF;
-            for (int j = 2; j <= N; j++) {
-                if (!visited[j] && dist[j] < min_value) {
-                    min_value = dist[j];
-                    min_idx = j;
-                }
-            }
-
-            visited[min_idx] = true;
-
-            // 거쳐가는게 더 빠른지 확인
-            for (int j = 2; j <= N; j++) {
-                if (dist[j] > dist[min_idx] + map[min_idx][j]) {
-                    dist[j] = dist[min_idx] + map[min_idx][j];
-                }
-            }
-        }
-
-        // 결과 카운트
-        for (int i = 1; i <= N; i++) {
-            System.out.println(dist[i]);
-            if(dist[i]<=K) answer ++;
-        }
-
-
+        answer = Math.max(answer, dp[len - 1]);
         return answer;
     }
 }
