@@ -1,27 +1,21 @@
 class Solution {
-    public int solution(int sticker[]) {
-        int answer = 0;
-        int len = sticker.length;
-
-        if (len == 1) return sticker[0];
-
-        int [] dp = new int[len];
-
-        // 첫 번째 스티커를 뗐을때
-        dp[0] = sticker[0];
-        dp[1] = dp[0];
-        for (int i = 2; i < len - 1; i++) {
-            dp[i] = Math.max(dp[i - 2] + sticker[i], dp[i - 1]);
-        }
-        answer = dp[len - 2];
-
-        // 첫 번째 스티커를 안뗐을때
-        dp[0] = 0;
-        dp[1] = sticker[1];
-        for (int i = 2; i < len; i++) {
-            dp[i] = Math.max(dp[i - 2] + sticker[i], dp[i - 1]);
-        }
-        answer = Math.max(answer, dp[len - 1]);
+    public long solution(int w, int h) {
+        long answer = 1;
+        long big = gcd(w,h);
+        long weight = (long)w;
+        long height = (long)h;
+        
+        answer = weight*height - ((weight/big)+(height/big)-1)*big;
+        
         return answer;
+    }
+    
+    public static long gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return (long)a;
     }
 }
