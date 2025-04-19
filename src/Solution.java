@@ -1,8 +1,11 @@
 class Solution {
-
-    public int solution(int n, int k) {
+    public int solution(int[] array, int height) {
         int answer = 0;
-        answer = (n * 12000) + ((k - (n / 10)) * 2000);
+        for(int i =0; i<array.length; i++){
+            if(height<array[i]){
+                answer+=1;
+            }
+        }
         return answer;
     }
 }
