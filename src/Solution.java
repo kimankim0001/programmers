@@ -1,11 +1,9 @@
 class Solution {
-    public int solution(int[] array, int height) {
+
+    public int solution(String message) {
         int answer = 0;
-        for(int i =0; i<array.length; i++){
-            if(height<array[i]){
-                answer+=1;
-            }
-        }
+
+        answer = message.length() * 2;
         return answer;
     }
 }

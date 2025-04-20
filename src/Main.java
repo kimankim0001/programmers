@@ -15,7 +15,7 @@ public class Main {
         String[] str1 = {"BACDE", "CBADF", "AECB", "BDA"};
         String[][] str2 = {{"rardss", "123"},{"yyoom", "1234"},{"meosseugi", "1234"}};
                                
-        System.out.println(s1.solution(arr1,167));
+        System.out.println(s1.solution("happy birthday!"));
 //        System.out.println(Arrays.toString(s1.solution(3,str1)));
 //        System.out.println(Arrays.deepToString(s1.solution(5, arr1, arr2)));
     }
