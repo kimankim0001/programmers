@@ -1,11 +1,13 @@
 class Solution {
-
-    public int[] solution(int[] array) {
-        int[] answer = {0, 0};
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > answer[0]) {
-                answer[0] = array[i];
-                answer[1] = i;
+    public String solution(String myString) {
+        String answer = "";
+        int tmp;
+        for(int i=0; i<myString.length(); i++){
+            tmp = (int)myString.charAt(i);
+            if((65<=tmp)&&(tmp<=90)){
+                answer += (char)(tmp+32);
+            }else{
+                answer += (char)tmp;
             }
         }
         return answer;
