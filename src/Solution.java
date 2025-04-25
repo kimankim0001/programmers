@@ -1,13 +1,10 @@
 class Solution {
-
-    public int solution(String number) {
+    public int solution(int slice, int n) {
         int answer = 0;
-        int sum = 0;
-        String[] number_list = number.split("");
-        for (int i = 0; i < number_list.length; i++) {
-            sum += Integer.parseInt(number_list[i]);
-        }
-        answer = sum % 9;
+        if(n % slice == 0)
+            answer = n / slice;
+        else 
+            answer = n / slice + 1;
         return answer;
     }
 }
