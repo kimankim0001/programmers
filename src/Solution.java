@@ -1,6 +1,13 @@
 class Solution {
-    public int solution(int age) {
-        int answer = 2022-age+1;
+
+    public String solution(String my_string) {
+        String answer = my_string;
+
+        String[] replace = {"a", "e", "i", "o", "u"};
+
+        for (String i : replace) {
+            answer = answer.replaceAll(i, "");
+        }
         return answer;
     }
 }
