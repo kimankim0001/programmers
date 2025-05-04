@@ -1,12 +1,12 @@
 class Solution {
 
-    public String solution(String my_string) {
-        String answer = my_string;
+    public int solution(int n, int t) {
 
-        String[] replace = {"a", "e", "i", "o", "u"};
+        int answer = n;
 
-        for (String i : replace) {
-            answer = answer.replaceAll(i, "");
+        for (int i = 0; i < t; i++) {
+
+            answer *= 2;
         }
         return answer;
     }
