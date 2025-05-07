@@ -1,13 +1,15 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Solution {
-    public String[] solution(String[] strArr) {
-        List<String> list = new ArrayList<>();
-        for (String str : strArr) {
-            if (!str.contains("ad")) list.add(str);
+    public String solution(String myString) {
+        String answer = "";
+        int tmp;
+        for(int i=0; i<myString.length(); i++){
+            tmp = (int)myString.charAt(i);
+            if((65<=tmp)&&(tmp<=90)){
+                answer += (char)(tmp+32);
+            }else{
+                answer += (char)tmp;
+            }
         }
-        String[] answer = list.toArray(new String[0]);
         return answer;
     }
 }
