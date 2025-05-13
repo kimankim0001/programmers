@@ -1,11 +1,11 @@
 class Solution {
-	public int solution(int n) {
-		int answer = 0;
-		
-		while (n > 0) {
-			answer += n % 10; // 일의 자리부터 자릿수 더하기
-			n /= 10;
-		}
-		return answer;
-	}
+    public int solution(int num1, int num2) {
+        int answer = 0;
+        if (num1==num2){
+            answer = 1;
+        } else {
+            answer = -1;
+        }
+        return answer;
+    }
 }
