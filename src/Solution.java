@@ -1,9 +1,13 @@
 class Solution {
 
-    public int solution(String message) {
-        int answer = 0;
+    public String solution(String my_string) {
+        String answer = my_string;
 
-        answer = message.length() * 2;
+        String[] replace = {"a", "e", "i", "o", "u"};
+
+        for (String i : replace) {
+            answer = answer.replaceAll(i, "");
+        }
         return answer;
     }
 }
