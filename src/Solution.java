@@ -1,13 +1,8 @@
 class Solution {
 
-    public String solution(String my_string) {
-        String answer = my_string;
-
-        String[] replace = {"a", "e", "i", "o", "u"};
-
-        for (String i : replace) {
-            answer = answer.replaceAll(i, "");
-        }
+	 public int solution(int num1, int num2) {
+        int answer = 0;
+        answer = num1 % num2;
         return answer;
     }
 }
