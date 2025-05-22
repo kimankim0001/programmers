@@ -1,10 +1,9 @@
 class Solution {
 
-    public String solution(String my_string, String letter) {
-        String answer = "";
+    public int solution(String message) {
+        int answer = 0;
 
-        answer = my_string.replace(letter, "");
-        
+        answer = message.length() * 2;
         return answer;
     }
 }
