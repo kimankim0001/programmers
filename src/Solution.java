@@ -1,6 +1,9 @@
 class Solution {
-    public int solution(int age) {
-        int answer = 2022-age+1;
+
+    public int solution(String message) {
+        int answer = 0;
+
+        answer = message.length() * 2;
         return answer;
     }
 }
