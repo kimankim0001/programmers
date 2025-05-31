@@ -1,11 +1,10 @@
 class Solution {
-    public int solution(int n) {
-        int answer = 0;
-        for (int i = 0; i <= n ; i++) {
-            if (i%2 == 0){
-                answer += i;
-            }
-        }
+
+    public int solution(int[] box, int n) {
+        int a = box[0] / n;
+        int b = box[1] / n;
+        int c = box[2] / n;
+        int answer = a * b * c;
         return answer;
     }
 }
